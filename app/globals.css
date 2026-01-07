@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0f0f1a;
+  --foreground: #f5f5f7;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 via-accent-400 to-warm-400 bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-primary-600 via-accent-500 to-warm-500;
+  }
+
+  .card-gradient {
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(4px);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative px-4 py-2 text-sm font-medium transition-colors;
+    color: rgba(245, 245, 247, 0.7);
+  }
+
+  .nav-link:hover {
+    color: var(--foreground);
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 transition-all duration-300;
+    background: linear-gradient(to right, #e879f9, #22d3ee);
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 font-medium text-white transition-all duration-300;
+    background: linear-gradient(to right, #d946ef, #06b6d4);
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px -3px rgba(217, 70, 239, 0.25);
+  }
+
+  .section-container {
+    @apply mx-auto max-w-6xl px-4;
+  }
+
+  @media (min-width: 640px) {
+    .section-container {
+      @apply px-6;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-container {
+      @apply px-8;
+    }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, #c026d3, #0891b2);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(217, 70, 239, 0.3);
+  color: var(--foreground);
+}
