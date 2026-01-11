@@ -17,6 +17,10 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Liviu Orehovschi",
   description: "Personal portfolio and bio",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

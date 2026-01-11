@@ -1,86 +1,150 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { useRef } from "react";
+
 export default function Hobbies() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const hobbies = [
     {
-      title: "Sourdough",
+      title: "Real Minerva CF",
       description:
-        "There's something meditative about working with dough — the patience, the timing, the variables. Each loaf teaches me something new. It's a pursuit that doesn't give up its secrets easily, and that's exactly what makes it rewarding.",
-      icon: "bread",
+        "Founded a university football club with 100+ members. Weekly matches, watch events, and training sessions.",
+      image: "/football.jpeg",
     },
     {
       title: "Music",
       description:
-        "Whether listening or playing, music has always been a way to decompress and explore. I dig in, iterate, and keep improving until things click — the same rhythm that shows up in my work.",
-      icon: "music",
+        "Covers, experiments, and the occasional original.",
+      image: "/music.jpeg",
+      links: [
+        { label: "YouTube", url: "https://www.youtube.com/@liviuorehovschi9629" },
+        { label: "SoundCloud", url: "https://soundcloud.com/liviu-orehovschi" },
+      ],
     },
     {
-      title: "Football Tactics",
+      title: "Sourdough",
       description:
-        "Not just watching the game, but understanding it. Formations, pressing triggers, transition play. It's where my passion for data and patterns meets something I genuinely love. It's also what led to building xVal.",
-      icon: "football",
+        "Patience, timing, variables. Each loaf teaches something new.",
+      image: "/starter.jpeg",
+      links: [
+        { label: "View Experiment", url: "https://docs.google.com/presentation/d/1DcVwhZ6pWOuguoKqaqRgnx4Fs1nJjJ7V1Y6alX-dnXc/edit?usp=sharing" },
+      ],
+    },
+    {
+      title: "Fermentation",
+      description:
+        "Exploring how salt, time, and bacteria transform ingredients.",
+      image: "/tomato.jpeg",
+      links: [
+        { label: "Tomato Study", url: "https://docs.google.com/presentation/d/1ECuB4Va-G-kjAFkv3wBOxZFCzGv6jmCK5zV9HnUXtx4/edit" },
+      ],
     },
   ];
 
-  const iconMap: { [key: string]: JSX.Element } = {
-    bread: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0A1.75 1.75 0 003 15.546V7.75A2.75 2.75 0 015.75 5h12.5A2.75 2.75 0 0121 7.75v7.796z" />
-      </svg>
-    ),
-    music: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-      </svg>
-    ),
-    football: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7l3-7z" />
-      </svg>
-    ),
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = 400;
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
     <div className="min-h-screen py-20">
       <div className="section-container">
         {/* Header */}
-        <div className="mb-16">
-          <h1 className="text-4xl font-bold gradient-text sm:text-5xl md:text-6xl">
-            Hobbies & Passions
-          </h1>
-          <p className="mt-4 text-lg text-foreground/70 max-w-2xl">
-            Beyond work, these are the things that spark joy and keep me grounded.
-            I like pursuits that don&apos;t give up their secrets easily.
-          </p>
-        </div>
+        <div className="flex items-end justify-between mb-8">
+          <div>
+            <h1 className="text-4xl font-bold gradient-text sm:text-5xl">
+              Hobbies
+            </h1>
+            <p className="mt-4 text-[var(--muted)]">
+              Beyond work
+            </p>
+          </div>
 
-        {/* Hobbies Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {hobbies.map((hobby, index) => (
-            <div
-              key={index}
-              className="group card-gradient hover-lift rounded-2xl border border-white/10 p-8"
+          {/* Scroll controls */}
+          <div className="hidden sm:flex gap-2">
+            <button
+              onClick={() => scroll("left")}
+              className="p-3 rounded-full border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all"
             >
-              {/* Icon */}
-              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-warm-500/20 to-primary-500/20 text-warm-400 group-hover:scale-110 transition-transform duration-300">
-                {iconMap[hobby.icon]}
-              </div>
+              <svg className="w-5 h-5 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="p-3 rounded-full border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all"
+            >
+              <svg className="w-5 h-5 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
 
-              <h3 className="text-xl font-semibold text-foreground group-hover:gradient-text transition-all duration-300">
+      {/* Horizontal scroll container */}
+      <div
+        ref={scrollRef}
+        className="flex gap-5 overflow-x-auto pb-8 px-6 lg:px-[calc((100vw-64rem)/2+2rem)] snap-x snap-mandatory scrollbar-hide"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      >
+        {hobbies.map((hobby, index) => (
+          <div
+            key={index}
+            className="group relative flex-shrink-0 w-[340px] sm:w-[400px] aspect-[4/5] rounded-2xl overflow-hidden snap-start"
+          >
+            {/* Image */}
+            <Image
+              src={hobby.image}
+              alt={hobby.title}
+              fill
+              className="object-cover transition-all duration-700 group-hover:scale-105"
+            />
+
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col justify-end p-6">
+              <h3 className="text-2xl font-semibold text-white mb-2">
                 {hobby.title}
               </h3>
-              <p className="mt-3 text-foreground/70 leading-relaxed">
+              <p className="text-sm text-white/70 leading-relaxed mb-4">
                 {hobby.description}
               </p>
-            </div>
-          ))}
-        </div>
 
-        {/* Quote */}
-        <div className="mt-20 text-center">
-          <blockquote className="text-xl italic text-foreground/60 max-w-2xl mx-auto">
-            &ldquo;Know when to slow down, know when to push, and always move forward with intention.&rdquo;
-          </blockquote>
-        </div>
+              {/* Links */}
+              {hobby.links && hobby.links.length > 0 && (
+                <div className="flex items-center gap-4">
+                  {hobby.links.map((link, i) => (
+                    <Link
+                      key={i}
+                      href={link.url}
+                      target="_blank"
+                      className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Border */}
+            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
@@ -15,14 +16,20 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-md">
+    <nav className="fixed top-0 z-50 w-full border-b border-[var(--glass-border)] bg-[var(--background)]/90 backdrop-blur-xl">
       <div className="section-container">
         <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="text-xl font-bold gradient-text"
+            className="flex items-center"
           >
-            LO
+            <Image
+              src="/logo.jpeg"
+              alt="Liviu Orehovschi"
+              width={72}
+              height={48}
+              className="object-contain invert"
+            />
           </Link>
 
           <div className="hidden md:flex md:items-center md:space-x-1">
@@ -42,7 +49,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <button className="md:hidden p-2 text-foreground/70 hover:text-foreground">
+          <button className="md:hidden p-2 text-[var(--muted)] hover:text-foreground transition-colors">
             <svg
               className="h-6 w-6"
               fill="none"
