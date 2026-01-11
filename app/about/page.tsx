@@ -4,7 +4,16 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 
 export default function About() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
+
+  const storyParagraphs = [
+    "I was born in Nimereuca, Soroca in northern Moldova. I only lived there for about a year, but it still feels like the true start of the story. My childhood and school years were mostly in Chișinău, the capital, where the world felt bigger and the pace was faster. Even then, I was the kind of kid who wanted to see what was on the other side of the map — not because I was chasing something shiny, but because I was curious and a little restless.",
+    "Before university I was already moving around. I travelled, took internships, said yes to chances that sounded slightly uncomfortable and therefore probably worth doing. By the time I started college, I had learned a useful lesson: new places do not just change your scenery — they change your standards. You learn quickly what you miss, what you tolerate, what you value, and what kind of person you become when nobody is watching.",
+    "University took that to another level. I lived across more than nine countries and travelled through many more. At some point you stop being impressed by airports and start paying attention to patterns — how teams actually work, how incentives shape behavior, how culture shows up in small things like punctuality, honesty, or who speaks first in a room. I think that is where my obsession with systems comes from.",
+    "I ended up graduating in two fields because I could not pick a single lens. I like the precision of technical work and the messiness of real life. I like building things, measuring what happens, and adjusting until the result is solid. Sometimes that looks like software and models. Sometimes it looks like organizing a football community from scratch. Sometimes it looks like a fermentation experiment where the data is bubbles, smell, and whether the bread actually rises.",
+    "The common thread is simple: I care about work that holds up in the real world. I do not need everything to be perfect, but I do need it to be honest. I show up, learn fast, and I take pride in being the person you can hand a messy problem to and get back something clearer, tighter, and actually usable.",
+  ];
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -22,22 +31,27 @@ export default function About() {
       observerRef.current?.observe(el);
     });
 
-    return () => observerRef.current?.disconnect();
-  }, []);
+    // Story paragraphs observer
+    const storyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-4');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
 
-  const cities = [
-    { name: "Chișinău", country: "Moldova", note: "where it started" },
-    { name: "Philadelphia", country: "USA", note: "high school" },
-    { name: "Siegen", country: "Germany", note: "covid times" },
-    { name: "San Francisco", country: "USA", note: "home base" },
-    { name: "Seoul", country: "South Korea", note: "" },
-    { name: "Hyderabad", country: "India", note: "" },
-    { name: "Berlin", country: "Germany", note: "" },
-    { name: "Buenos Aires", country: "Argentina", note: "" },
-    { name: "London", country: "UK", note: "" },
-    { name: "Taipei", country: "Taiwan", note: "" },
-    { name: "Dublin", country: "Ireland", note: "" },
-  ];
+    const paragraphElements = containerRef.current?.querySelectorAll('.story-paragraph');
+    paragraphElements?.forEach((el) => storyObserver.observe(el));
+
+    return () => {
+      observerRef.current?.disconnect();
+      storyObserver.disconnect();
+    };
+  }, []);
 
   return (
     <>
@@ -62,41 +76,6 @@ export default function About() {
         .reveal-on-scroll:nth-child(2) { transition-delay: 0.1s; }
         .reveal-on-scroll:nth-child(3) { transition-delay: 0.2s; }
         .reveal-on-scroll:nth-child(4) { transition-delay: 0.3s; }
-
-        .city-line {
-          position: relative;
-        }
-
-        .city-line::before {
-          content: '';
-          position: absolute;
-          left: 6px;
-          top: 20px;
-          bottom: -20px;
-          width: 1px;
-          background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
-        }
-
-        .city-line:last-child::before {
-          display: none;
-        }
-
-        .highlight-word {
-          position: relative;
-          white-space: nowrap;
-        }
-
-        .highlight-word::after {
-          content: '';
-          position: absolute;
-          left: -4px;
-          right: -4px;
-          bottom: 2px;
-          height: 8px;
-          background: rgba(255, 200, 150, 0.15);
-          z-index: -1;
-          border-radius: 2px;
-        }
       `}</style>
 
       <div className="min-h-screen">
@@ -113,52 +92,18 @@ export default function About() {
           </div>
         </section>
 
-        {/* Intro Paragraph */}
-        <section className="py-16 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="reveal-on-scroll grid md:grid-cols-[1fr,2fr] gap-12 items-start">
-              <div>
-                <p className="text-sm text-white/30 uppercase tracking-wider">Currently</p>
-                <p className="text-white/70 mt-2">San Francisco, CA</p>
-              </div>
-              <div>
-                <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light">
-                  I&apos;m Liviu—originally from <span className="highlight-word">Moldova</span>,
-                  now building <Link href="https://xval.ai" target="_blank" className="text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/40">xVal</Link>,
-                  a sports intelligence platform, from the Bay Area. My work sits at the
-                  intersection of data engineering, machine learning, and whatever needs
-                  building next.
+        {/* Story Section */}
+        <section className="py-16 px-6 border-t border-white/[0.06]">
+          <div className="max-w-3xl mx-auto">
+            <div ref={containerRef} className="space-y-6">
+              {storyParagraphs.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="story-paragraph text-white/50 leading-relaxed text-lg opacity-0 translate-y-4 transition-all duration-700 ease-out"
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  {paragraph}
                 </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Divider */}
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-        </div>
-
-        {/* The Journey - Cities */}
-        <section className="py-24 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="reveal-on-scroll mb-16">
-              <p className="font-editorial text-3xl md:text-4xl text-white/90 leading-snug">
-                I&apos;ve studied and lived across <span className="text-white">eleven cities</span> on four continents—
-                each one teaching something the last one couldn&apos;t.
-              </p>
-            </div>
-
-            <div className="reveal-on-scroll grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6">
-              {cities.map((city, i) => (
-                <div key={i} className="city-line group pl-6 py-2">
-                  <div className="absolute left-0 top-3 w-3 h-3 rounded-full border border-white/20 group-hover:border-white/40 group-hover:bg-white/10 transition-all duration-300" />
-                  <p className="text-white/90 font-medium">{city.name}</p>
-                  <p className="text-sm text-white/40">{city.country}</p>
-                  {city.note && (
-                    <p className="text-xs text-white/25 italic mt-1">{city.note}</p>
-                  )}
-                </div>
               ))}
             </div>
           </div>
