@@ -154,25 +154,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Editorial Intro Section */}
-        <section className="py-20 border-t border-[var(--glass-border)]">
-          <div className="max-w-4xl mx-auto px-6">
-            <div className="reveal-on-scroll grid md:grid-cols-[1fr,2fr] gap-12 items-start">
-              <div>
-                <p className="text-sm text-white/30 uppercase tracking-wider">Currently</p>
-                <p className="text-white/70 mt-2">San Francisco, CA</p>
-              </div>
-              <div>
-                <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light">
-                  I&apos;m Liviu. I grew up in <span className="highlight-word">Moldova</span> and somehow ended up in the Bay Area. I&apos;m working on{" "}
-                  <Link
-                    href="https://xval.app"
-                    target="_blank"
-                    className="text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/40"
-                  >
-                    xVal
-                  </Link>
-                  , which started as a way to think more clearly about football and turned into something bigger. I like building things, but I don&apos;t like pretending work explains a whole person. I care about ideas, sports, food, and the small details that make something feel right. I&apos;m curious, opinionated, and I tend to follow problems longer than I probably should.
+        <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light">
+          I&apos;m Liviu. I grew up in <span className="highlight-word">Moldova</span> and somehow ended up in the Bay Area. I&apos;m working on{" "}
+          <Link
+            href="https://xval.app"
+            target="_blank"
+            className="text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/40"
+          >
+            xVal
+          </Link>
+          , which started as a way to think more clearly about football and turned into something bigger. I like building things, but I don&apos;t like pretending work explains a whole person. I care about ideas, sports, food, and the small details that make something feel right. I&apos;m curious, opinionated, and I tend to follow problems longer than I probably should.
+        </p>
 
               </div>
             </div>
