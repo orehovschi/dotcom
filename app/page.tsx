@@ -165,7 +165,7 @@ export default function Home() {
               <div>
                 <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light">
                   I&apos;m Liviu—originally from <span className="highlight-word">Moldova</span>,
-                  now building <Link href="https://xval.ai" target="_blank" className="text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/40">xVal</Link>,
+                  now building <Link href="https://xval.app" target="_blank" className="text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/40">xVal</Link>,
                   a sports intelligence platform, from the Bay Area. My work sits at the
                   intersection of data engineering, machine learning, and whatever needs
                   building next.
