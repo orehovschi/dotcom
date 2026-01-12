@@ -166,11 +166,6 @@ export default function Home() {
           , which started as a way to think more clearly about football and turned into something bigger. I like building things, but I don&apos;t like pretending work explains a whole person. I care about ideas, sports, food, and the small details that make something feel right. I&apos;m curious, opinionated, and I tend to follow problems longer than I probably should.
         </p>
 
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Divider */}
         <div className="max-w-4xl mx-auto px-6">
           <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
