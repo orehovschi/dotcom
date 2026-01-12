@@ -128,25 +128,37 @@ export default function About() {
                 <p className="text-sm text-white/40 mb-6">
                   Concentrations: Computer Science & AI · Cells and Organisms
                 </p>
-                <p className="text-white/40 text-sm leading-relaxed max-w-2xl mb-6">
-                  A university with no campus—classes happened live across seven countries.
-                  I served as Student Body President and founded Minerva FC, convincing
-                  strangers in every city to show up for pickup games. Both required
-                  building systems that worked without me being there.
+                <p className="text-white/40 text-sm leading-relaxed max-w-2xl mb-4">
+                  Minerva is a global university with no single campus. Classes were live and discussion-heavy while we rotated across seven countries. I took two of Minerva&apos;s hardest majors at the same time, worked alongside school, and still leaned into the travel and the community side of it.
+                </p>
+                <p className="text-white/40 text-sm leading-relaxed max-w-2xl mb-4">
+                  I served as Student Body President and founded Minerva Football Club. The club became one of the most consistent parts of campus life across rotations, and it taught me a lot about building community, following through, and making something people actually want to keep showing up for.
                 </p>
                 <p className="text-white/40 text-sm leading-relaxed max-w-2xl mb-6">
-                  The dual degree wasn&apos;t an accident. I wanted to understand complex systems
-                  from both ends—how to model them computationally and how they actually work
-                  in nature. Courses like <span className="text-white/60">Theory of Computation</span> and <span className="text-white/60">Statistical Modeling</span> built
-                  the foundations for ML work, while <span className="text-white/60">Genes to Organisms</span> and <span className="text-white/60">Evolution Across Multiple Scales</span> taught me how to think about emergent behavior
-                  in systems you can&apos;t fully control.
+                  I started university more pulled toward biology, and computer science became part of the picture along the way. It wasn&apos;t some perfectly planned path. I just kept ending up in situations where being able to build and think technically made the difference, and I liked that.
                 </p>
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {["AI Theory", "Software Engineering", "Statistical Modeling", "Theory of Computation", "Data Structures", "Linear Algebra", "Physics of Life", "Evolution", "Biochemistry"].map((course) => (
-                    <span key={course} className="px-3 py-1 text-xs text-white/30 border border-white/[0.06] rounded-full">
-                      {course}
-                    </span>
-                  ))}
+                <div className="mt-6">
+                  <p className="text-xs text-white/30 uppercase tracking-wider mb-3">Selected coursework</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                    {[
+                      "Software Engineering: Building Powerful Applications",
+                      "Theory and Applications of Artificial Intelligence",
+                      "Theory of Computation",
+                      "Statistical Modeling: Prediction and Causal Inference",
+                      "Problem Solving with Data Structures and Algorithms",
+                      "Theory and Applications of Linear Algebra",
+                      "Probability and Statistics",
+                      "Complex Systems",
+                      "Genes to Organisms",
+                      "Evolution Across Multiple Scales",
+                      "Physics of Life",
+                      "Research Methods"
+                    ].map((course) => (
+                      <span key={course} className="text-sm text-white/40">
+                        {course}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -155,8 +167,8 @@ export default function About() {
                   <h3 className="font-editorial text-2xl text-white/80">Westtown School</h3>
                   <p className="text-sm text-white/40">2017 — 2018</p>
                 </div>
-                <p className="text-white/40 text-sm">
-                  Boarding school in Pennsylvania. STEM focus. First time living away from home.
+                <p className="text-white/40 text-sm leading-relaxed max-w-2xl">
+                  Boarding school in Pennsylvania. I mixed a pretty unorthodox set of interests: advanced math and STEM, wrestling and soccer, drawing, vocals and digital music production, plus a part-time job in the school cafeteria. It was intense, but it fit me.
                 </p>
               </div>
             </div>
@@ -177,50 +189,51 @@ export default function About() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3zm0 4h16M9 4v3m6-3v3" />
                   </svg>
                 </div>
-                <h3 className="text-white font-medium mb-2">Data Engineering</h3>
+                <h3 className="text-white font-medium mb-2">Building Products</h3>
                 <p className="text-sm text-white/40 leading-relaxed">
-                  Pipelines that don&apos;t break at 3am. ETL, streaming, orchestration—building
-                  the plumbing that makes everything else possible.
+                  I like taking an idea from vague to usable. The whole loop: make a plan, build the thing, iterate fast, and keep polishing until it feels right.
                 </p>
               </div>
 
               <div className="group">
                 <div className="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center mb-4 group-hover:bg-white/[0.06] group-hover:border-white/[0.1] transition-all">
                   <svg className="w-5 h-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 01-1.591.659H9.061a2.25 2.25 0 01-1.591-.659L5 14.5m14 0V17a2 2 0 01-2 2H7a2 2 0 01-2-2v-2.5" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
                   </svg>
                 </div>
-                <h3 className="text-white font-medium mb-2">ML & Embeddings</h3>
+                <h3 className="text-white font-medium mb-2">Applied Analysis</h3>
                 <p className="text-sm text-white/40 leading-relaxed">
-                  Similarity search, recommendations, and models that actually ship.
-                  Most of my work involves making unstructured data useful.
+                  I do best when there&apos;s something concrete to understand and improve. Sometimes that involves models or statistics, but I&apos;m not attached to any one method. I just want the result to be clear and defensible.
                 </p>
               </div>
 
               <div className="group">
                 <div className="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center mb-4 group-hover:bg-white/[0.06] group-hover:border-white/[0.1] transition-all">
                   <svg className="w-5 h-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zm0 9.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zm9.75-9.75A2.25 2.25 0 0115.75 3.75H18a2.25 2.25 0 012.25 2.25V8.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zm0 9.75a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 15.75V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75l-9.75-5.25 4.179-2.25m11.142 0l-5.571 3-5.571-3" />
                   </svg>
                 </div>
-                <h3 className="text-white font-medium mb-2">Product Building</h3>
+                <h3 className="text-white font-medium mb-2">Full Stack Ownership</h3>
                 <p className="text-sm text-white/40 leading-relaxed">
-                  End-to-end. From database schema to deploy button.
-                  I like owning the whole stack because that&apos;s how things actually get done.
+                  I&apos;m happiest owning work end-to-end, from data shapes and backend logic to the UI and deployment. Less handoff, more momentum.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Tools - Minimal */}
+        {/* Tools */}
         <section className="py-16 px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="reveal-on-scroll flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/30">
-              <span className="text-white/50">Tools:</span>
-              {["Python", "TypeScript", "SQL", "React", "PostgreSQL", "TensorFlow", "pandas", "AWS"].map((tool) => (
-                <span key={tool} className="hover:text-white/50 transition-colors cursor-default">{tool}</span>
-              ))}
+            <div className="reveal-on-scroll">
+              <p className="text-xs text-white/30 uppercase tracking-wider mb-4">Tools</p>
+              <div className="flex flex-wrap gap-2">
+                {["Python", "TypeScript", "SQL", "R", "React", "Next.js", "Flask", "PostgreSQL", "TensorFlow", "pandas", "Git", "Docker", "AWS"].map((tool) => (
+                  <span key={tool} className="px-3 py-1 text-sm text-white/50 border border-white/[0.08] rounded-full hover:border-white/[0.15] hover:text-white/70 transition-all cursor-default">
+                    {tool}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </section>

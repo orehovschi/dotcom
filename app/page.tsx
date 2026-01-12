@@ -26,17 +26,18 @@ export default function Home() {
   }, []);
 
   const cities = [
-    { name: "Chișinău", country: "Moldova", note: "where it started" },
-    { name: "Philadelphia", country: "USA", note: "high school" },
-    { name: "Siegen", country: "Germany", note: "covid times" },
-    { name: "San Francisco", country: "USA", note: "home base" },
-    { name: "Seoul", country: "South Korea", note: "" },
-    { name: "Hyderabad", country: "India", note: "" },
-    { name: "Berlin", country: "Germany", note: "" },
-    { name: "Buenos Aires", country: "Argentina", note: "" },
-    { name: "London", country: "UK", note: "" },
-    { name: "Taipei", country: "Taiwan", note: "" },
-    { name: "Dublin", country: "Ireland", note: "" },
+    { name: "Soroca (Nimereuca)", country: "Moldova" },
+    { name: "Chișinău", country: "Moldova" },
+    { name: "Philadelphia", country: "USA" },
+    { name: "Siegen", country: "Germany" },
+    { name: "Dublin", country: "Ireland" },
+    { name: "Seoul", country: "South Korea" },
+    { name: "Taipei", country: "Taiwan" },
+    { name: "Hyderabad", country: "India" },
+    { name: "Buenos Aires", country: "Argentina" },
+    { name: "London", country: "UK" },
+    { name: "Berlin", country: "Germany" },
+    { name: "San Francisco", country: "USA" },
   ];
 
   return (
@@ -63,22 +64,37 @@ export default function Home() {
         .reveal-on-scroll:nth-child(3) { transition-delay: 0.2s; }
         .reveal-on-scroll:nth-child(4) { transition-delay: 0.3s; }
 
-        .city-line {
+        .city-path {
           position: relative;
         }
 
-        .city-line::before {
+        .city-path::before {
           content: '';
           position: absolute;
-          left: 6px;
-          top: 20px;
-          bottom: -20px;
+          left: 5px;
+          top: 16px;
+          height: calc(100% + 24px);
           width: 1px;
-          background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+          background: rgba(255,255,255,0.1);
         }
 
-        .city-line:last-child::before {
+        .city-path:last-child::before {
           display: none;
+        }
+
+        @media (min-width: 640px) {
+          .city-path-container {
+            position: relative;
+          }
+          .city-path-container::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            bottom: 12px;
+            width: 1px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+          }
         }
 
         .highlight-word {
@@ -154,17 +170,22 @@ export default function Home() {
           </div>
         </section>
 
-        <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light">
-          I&apos;m Liviu. I grew up in <span className="highlight-word">Moldova</span> and somehow ended up in the Bay Area. I&apos;m working on{" "}
-          <Link
-            href="https://xval.app"
-            target="_blank"
-            className="text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/40"
-          >
-            xVal
-          </Link>
-          , which started as a way to think more clearly about football and turned into something bigger. I like building things, but I don&apos;t like pretending work explains a whole person. I care about ideas, sports, food, and the small details that make something feel right. I&apos;m curious, opinionated, and I tend to follow problems longer than I probably should.
-        </p>
+        {/* Editorial Intro Section */}
+        <section className="py-20 border-t border-[var(--glass-border)]">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="reveal-on-scroll grid md:grid-cols-[1fr,2fr] gap-12 items-start">
+              <div>
+                <p className="text-sm text-white/30 uppercase tracking-wider">Currently</p>
+                <p className="text-white/70 mt-2">San Francisco, CA</p>
+              </div>
+              <div>
+                <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light">
+                  I&apos;m Liviu. I grew up in <span className="highlight-word">Moldova</span> and somehow ended up in the Bay Area. I&apos;m working on <Link href="https://xval.app" target="_blank" className="text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/40">xVal</Link>, which started as a way to think more clearly about football and turned into something bigger. I like building things, but I don&apos;t like pretending work explains a whole person. I care about ideas, sports, food, and the small details that make something feel right. I&apos;m curious, opinionated, and I tend to follow problems longer than I probably should.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Divider */}
         <div className="max-w-4xl mx-auto px-6">
@@ -176,22 +197,42 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="reveal-on-scroll mb-16">
               <p className="font-editorial text-3xl md:text-4xl text-white/90 leading-snug">
-                I&apos;ve studied and lived across <span className="text-white">eleven cities</span> on four continents—
-                each one teaching something the last one couldn&apos;t.
+                I&apos;ve lived in <span className="text-white">12 cities</span> across four continents.
+              </p>
+              <p className="font-editorial text-xl md:text-2xl text-white/50 mt-4 leading-relaxed">
+                The headline sounds flashy. The real impact is the small stuff you carry from each place.
               </p>
             </div>
 
-            <div className="reveal-on-scroll grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6">
+            {/* Mobile: vertical timeline */}
+            <div className="reveal-on-scroll sm:hidden space-y-0">
               {cities.map((city, i) => (
-                <div key={i} className="city-line group pl-6 py-2">
-                  <div className="absolute left-0 top-3 w-3 h-3 rounded-full border border-white/20 group-hover:border-white/40 group-hover:bg-white/10 transition-all duration-300" />
+                <div key={i} className="city-path group pl-6 py-3 relative">
+                  <div className="absolute left-0 top-4 w-[11px] h-[11px] rounded-full border border-white/20 bg-black group-hover:border-white/40 group-hover:bg-white/10 transition-all duration-300" />
                   <p className="text-white/90 font-medium">{city.name}</p>
                   <p className="text-sm text-white/40">{city.country}</p>
-                  {city.note && (
-                    <p className="text-xs text-white/25 italic mt-1">{city.note}</p>
-                  )}
                 </div>
               ))}
+            </div>
+
+            {/* Desktop: zig-zag path */}
+            <div className="reveal-on-scroll hidden sm:block city-path-container">
+              <div className="space-y-4">
+                {cities.map((city, i) => (
+                  <div
+                    key={i}
+                    className={`group flex items-center gap-4 ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+                  >
+                    <div className={`flex items-center gap-3 ${i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                      <div className="w-3 h-3 rounded-full border border-white/20 bg-black group-hover:border-white/40 group-hover:bg-white/10 transition-all duration-300 flex-shrink-0" />
+                      <div className={`${i % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                        <p className="text-white/90 font-medium">{city.name}</p>
+                        <p className="text-sm text-white/40">{city.country}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
