@@ -80,12 +80,9 @@ export default function Projects() {
         {/* Header */}
         <div className="flex items-end justify-between mb-8">
           <div>
-            <h1 className="text-4xl font-bold gradient-text sm:text-5xl">
-              Projects
-            </h1>
-            <p className="mt-4 text-[var(--muted)]">
+            <h1 className="text-3xl font-bold text-white/90 sm:text-4xl">
               Things I&apos;ve built
-            </p>
+            </h1>
           </div>
 
           {/* Scroll controls */}
@@ -149,8 +146,8 @@ export default function Projects() {
               <h3 className="text-2xl font-semibold text-white mb-1">
                 {project.title}
               </h3>
-              <p className="text-sm text-white/50 mb-3">{project.subtitle}</p>
-              <p className="text-sm text-white/70 leading-relaxed line-clamp-2 mb-4">
+              <p className="text-sm text-white/60 mb-3">{project.subtitle}</p>
+              <p className="text-base text-white/70 leading-relaxed line-clamp-2 mb-4">
                 {project.description}
               </p>
 

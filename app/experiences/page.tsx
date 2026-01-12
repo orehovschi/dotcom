@@ -83,7 +83,7 @@ export default function Experiences() {
     {
       title: "Research Intern",
       company: "Institute of Chemistry",
-      period: "Jan 2020 – Apr 2020",
+      period: "Aug 2020 – Apr 2021",
       location: "Moldova",
       bullets: [
         "Synthesized metal-organic compounds for water purification",
@@ -109,8 +109,8 @@ export default function Experiences() {
       <div className="section-container">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-bold gradient-text sm:text-5xl">
-            Experience
+          <h1 className="text-3xl font-bold text-white/90 sm:text-4xl">
+            Work history
           </h1>
         </div>
 
@@ -141,14 +141,14 @@ export default function Experiences() {
                     <h3 className="text-lg font-semibold text-white mb-1">
                       {exp.title}
                     </h3>
-                    <p className="text-sm text-white/50 mb-4">
+                    <p className="text-sm text-white/60 mb-4">
                       {exp.company} · {exp.location}
                     </p>
 
                     <ul className="space-y-2">
                       {exp.bullets.map((bullet, i) => (
-                        <li key={i} className="flex gap-3 text-sm text-white/60 leading-relaxed">
-                          <span className="text-white/30 mt-1.5">›</span>
+                        <li key={i} className="flex gap-3 text-base text-white/70 leading-relaxed">
+                          <span className="text-white/60 mt-0.5">›</span>
                           <span>{bullet}</span>
                         </li>
                       ))}

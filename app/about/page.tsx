@@ -83,9 +83,6 @@ export default function About() {
       {/* Hero Opening */}
       <section className="pt-32 pb-24 px-6">
         <div className="max-w-4xl mx-auto">
-          <p className="reveal-on-scroll text-sm tracking-[0.3em] text-white/40 uppercase mb-8">
-            About
-          </p>
           <h1 className="reveal-on-scroll font-editorial text-5xl sm:text-6xl md:text-7xl font-medium text-white leading-[1.1] tracking-tight">
             I grew up moving a lot,<br />
             <span className="text-white/50">so I pay attention to what lasts.</span>
@@ -101,7 +98,7 @@ export default function About() {
               {storyParagraphs.map((paragraph, index) => (
                 <p
                   key={index}
-                  className="story-paragraph text-white/50 leading-relaxed text-lg opacity-0 translate-y-4 transition-all duration-700 ease-out"
+                  className="story-paragraph text-white/60 leading-relaxed text-lg opacity-0 translate-y-4 transition-all duration-700 ease-out"
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   {paragraph}
@@ -114,7 +111,7 @@ export default function About() {
         {/* Education */}
         <section className="py-24 px-6 bg-white/[0.015]">
           <div className="max-w-4xl mx-auto">
-            <p className="reveal-on-scroll text-sm tracking-[0.3em] text-white/40 uppercase mb-12">
+            <p className="reveal-on-scroll text-sm tracking-[0.3em] text-white/60 uppercase mb-12">
               Education
             </p>
 
@@ -122,52 +119,33 @@ export default function About() {
               <div className="reveal-on-scroll">
                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-4">
                   <h3 className="font-editorial text-3xl text-white">Minerva University</h3>
-                  <p className="text-sm text-white/40">2021 — 2025</p>
+                  <p className="text-sm text-white/60">2021 — 2025</p>
                 </div>
-                <p className="text-white/60 mb-2">Dual B.S. in Computational Sciences & Natural Sciences</p>
-                <p className="text-sm text-white/40 mb-6">
+                <p className="text-lg text-white/70 mb-2">Dual B.S. in Computational Sciences & Natural Sciences</p>
+                <p className="text-base text-white/60 mb-6">
                   Concentrations: Computer Science & AI · Cells and Organisms
                 </p>
-                <p className="text-white/40 text-sm leading-relaxed max-w-2xl mb-4">
+                <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-4">
                   Minerva is a global university with no single campus. Classes were live and discussion-heavy while we rotated across seven countries. I took two of Minerva&apos;s hardest majors at the same time, worked alongside school, and still leaned into the travel and the community side of it.
                 </p>
-                <p className="text-white/40 text-sm leading-relaxed max-w-2xl mb-4">
+                <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-4">
                   I served as Student Body President and founded Minerva Football Club. The club became one of the most consistent parts of campus life across rotations, and it taught me a lot about building community, following through, and making something people actually want to keep showing up for.
                 </p>
-                <p className="text-white/40 text-sm leading-relaxed max-w-2xl mb-6">
+                <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-6">
                   I started university more pulled toward biology, and computer science became part of the picture along the way. It wasn&apos;t some perfectly planned path. I just kept ending up in situations where being able to build and think technically made the difference, and I liked that.
                 </p>
-                <div className="mt-6">
-                  <p className="text-xs text-white/30 uppercase tracking-wider mb-3">Selected coursework</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
-                    {[
-                      "Software Engineering: Building Powerful Applications",
-                      "Theory and Applications of Artificial Intelligence",
-                      "Theory of Computation",
-                      "Statistical Modeling: Prediction and Causal Inference",
-                      "Problem Solving with Data Structures and Algorithms",
-                      "Theory and Applications of Linear Algebra",
-                      "Probability and Statistics",
-                      "Complex Systems",
-                      "Genes to Organisms",
-                      "Evolution Across Multiple Scales",
-                      "Physics of Life",
-                      "Research Methods"
-                    ].map((course) => (
-                      <span key={course} className="text-sm text-white/40">
-                        {course}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                <p className="text-white/60 text-base leading-relaxed max-w-2xl mt-6">
+                  <span className="text-white/70">Coursework that stuck with me:</span>{" "}
+                  Software Engineering, AI Theory, Theory of Computation, Statistical Modeling, Data Structures, Linear Algebra, Probability & Stats, Complex Systems, Genes to Organisms, Evolution, Physics of Life.
+                </p>
               </div>
 
               <div className="reveal-on-scroll">
                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-4">
                   <h3 className="font-editorial text-2xl text-white/80">Westtown School</h3>
-                  <p className="text-sm text-white/40">2017 — 2018</p>
+                  <p className="text-sm text-white/60">2017 — 2018</p>
                 </div>
-                <p className="text-white/40 text-sm leading-relaxed max-w-2xl">
+                <p className="text-white/60 text-base leading-relaxed max-w-2xl">
                   Boarding school in Pennsylvania. I mixed a pretty unorthodox set of interests: advanced math and STEM, wrestling and soccer, drawing, vocals and digital music production, plus a part-time job in the school cafeteria. It was intense, but it fit me.
                 </p>
               </div>
@@ -178,7 +156,7 @@ export default function About() {
         {/* What I Work On */}
         <section className="py-24 px-6">
           <div className="max-w-4xl mx-auto">
-            <p className="reveal-on-scroll text-sm tracking-[0.3em] text-white/40 uppercase mb-12">
+            <p className="reveal-on-scroll text-sm tracking-[0.3em] text-white/60 uppercase mb-12">
               What I Work On
             </p>
 
@@ -189,8 +167,8 @@ export default function About() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3zm0 4h16M9 4v3m6-3v3" />
                   </svg>
                 </div>
-                <h3 className="text-white font-medium mb-2">Building Products</h3>
-                <p className="text-sm text-white/40 leading-relaxed">
+                <h3 className="text-lg text-white font-medium mb-2">Building Products</h3>
+                <p className="text-base text-white/60 leading-relaxed">
                   I like taking an idea from vague to usable. The whole loop: make a plan, build the thing, iterate fast, and keep polishing until it feels right.
                 </p>
               </div>
@@ -201,8 +179,8 @@ export default function About() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
                   </svg>
                 </div>
-                <h3 className="text-white font-medium mb-2">Applied Analysis</h3>
-                <p className="text-sm text-white/40 leading-relaxed">
+                <h3 className="text-lg text-white font-medium mb-2">Applied Analysis</h3>
+                <p className="text-base text-white/60 leading-relaxed">
                   I do best when there&apos;s something concrete to understand and improve. Sometimes that involves models or statistics, but I&apos;m not attached to any one method. I just want the result to be clear and defensible.
                 </p>
               </div>
@@ -213,8 +191,8 @@ export default function About() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75l-9.75-5.25 4.179-2.25m11.142 0l-5.571 3-5.571-3" />
                   </svg>
                 </div>
-                <h3 className="text-white font-medium mb-2">Full Stack Ownership</h3>
-                <p className="text-sm text-white/40 leading-relaxed">
+                <h3 className="text-lg text-white font-medium mb-2">Full Stack Ownership</h3>
+                <p className="text-base text-white/60 leading-relaxed">
                   I&apos;m happiest owning work end-to-end, from data shapes and backend logic to the UI and deployment. Less handoff, more momentum.
                 </p>
               </div>
@@ -225,16 +203,12 @@ export default function About() {
         {/* Tools */}
         <section className="py-16 px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="reveal-on-scroll">
-              <p className="text-xs text-white/30 uppercase tracking-wider mb-4">Tools</p>
-              <div className="flex flex-wrap gap-2">
-                {["Python", "TypeScript", "SQL", "R", "React", "Next.js", "Flask", "PostgreSQL", "TensorFlow", "pandas", "Git", "Docker", "AWS"].map((tool) => (
-                  <span key={tool} className="px-3 py-1 text-sm text-white/50 border border-white/[0.08] rounded-full hover:border-white/[0.15] hover:text-white/70 transition-all cursor-default">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
+              <span className="text-white/70">Day-to-day:</span>{" "}
+              Python, TypeScript, SQL, React, Next.js, PostgreSQL, pandas, Git.{" "}
+              <span className="text-white/70">When needed:</span>{" "}
+              R, Flask, TensorFlow, Docker, AWS.
+            </p>
           </div>
         </section>
 

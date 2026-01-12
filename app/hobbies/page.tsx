@@ -60,12 +60,9 @@ export default function Hobbies() {
         {/* Header */}
         <div className="flex items-end justify-between mb-8">
           <div>
-            <h1 className="text-4xl font-bold gradient-text sm:text-5xl">
-              Hobbies
-            </h1>
-            <p className="mt-4 text-[var(--muted)]">
+            <h1 className="text-3xl font-bold text-white/90 sm:text-4xl">
               Beyond work
-            </p>
+            </h1>
           </div>
 
           {/* Scroll controls */}
@@ -117,7 +114,7 @@ export default function Hobbies() {
               <h3 className="text-2xl font-semibold text-white mb-2">
                 {hobby.title}
               </h3>
-              <p className="text-sm text-white/70 leading-relaxed mb-4">
+              <p className="text-base text-white/70 leading-relaxed mb-4">
                 {hobby.description}
               </p>
 
