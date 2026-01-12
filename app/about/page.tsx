@@ -78,19 +78,20 @@ export default function About() {
         .reveal-on-scroll:nth-child(4) { transition-delay: 0.3s; }
       `}</style>
 
-      <div className="min-h-screen">
-        {/* Hero Opening */}
-        <section className="pt-32 pb-24 px-6">
-          <div className="max-w-4xl mx-auto">
-            <p className="reveal-on-scroll text-sm tracking-[0.3em] text-white/40 uppercase mb-8">
-              About
-            </p>
-            <h1 className="reveal-on-scroll font-editorial text-5xl sm:text-6xl md:text-7xl font-medium text-white leading-[1.1] tracking-tight">
-              I build things that work<br />
-              <span className="text-white/50">when it matters.</span>
-            </h1>
-          </div>
-        </section>
+     <div className="min-h-screen">
+      {/* Hero Opening */}
+      <section className="pt-32 pb-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <p className="reveal-on-scroll text-sm tracking-[0.3em] text-white/40 uppercase mb-8">
+            About
+          </p>
+          <h1 className="reveal-on-scroll font-editorial text-5xl sm:text-6xl md:text-7xl font-medium text-white leading-[1.1] tracking-tight">
+            I grew up moving a lot,<br />
+            <span className="text-white/50">so I pay attention to what lasts.</span>
+          </h1>
+        </div>
+      </section>
+
 
         {/* Story Section */}
         <section className="py-16 px-6 border-t border-white/[0.06]">
