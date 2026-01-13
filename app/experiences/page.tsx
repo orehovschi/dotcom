@@ -38,7 +38,7 @@ export default function Experiences() {
     },
     {
       title: "Field Manager",
-      company: "Environment California",
+      company: "Fund for the Public Interest",
       period: "Jun 2024 – Sep 2024",
       location: "Oakland",
       bullets: [
