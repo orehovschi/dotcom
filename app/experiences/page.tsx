@@ -68,7 +68,7 @@ export default function Experiences() {
     {
       title: "STEM Mentor",
       company: "Terra Education",
-      companyUrl: "https://www.terra.do",
+      companyUrl: "https://www.terraeducation.com",
       period: "Jun 2023 – Jul 2024",
       location: "San Diego",
       bullets: [
