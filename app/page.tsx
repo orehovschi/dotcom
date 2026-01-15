@@ -26,18 +26,18 @@ export default function Home() {
   }, []);
 
   const cities = [
-    { name: "Soroca (Nimereuca)", country: "Moldova" },
-    { name: "Chișinău", country: "Moldova" },
-    { name: "Philadelphia", country: "USA" },
-    { name: "Siegen", country: "Germany" },
-    { name: "Dublin", country: "Ireland" },
-    { name: "Seoul", country: "South Korea" },
-    { name: "Taipei", country: "Taiwan" },
-    { name: "Hyderabad", country: "India" },
-    { name: "Buenos Aires", country: "Argentina" },
-    { name: "London", country: "UK" },
-    { name: "Berlin", country: "Germany" },
-    { name: "San Francisco", country: "USA" },
+    { name: "Soroca (Nimereuca)", country: "Moldova", wiki: "https://en.wikipedia.org/wiki/Soroca" },
+    { name: "Chișinău", country: "Moldova", wiki: "https://en.wikipedia.org/wiki/Chi%C8%99in%C4%83u" },
+    { name: "Philadelphia", country: "USA", wiki: "https://en.wikipedia.org/wiki/Philadelphia" },
+    { name: "Siegen", country: "Germany", wiki: "https://en.wikipedia.org/wiki/Siegen" },
+    { name: "Dublin", country: "Ireland", wiki: "https://en.wikipedia.org/wiki/Dublin" },
+    { name: "Seoul", country: "South Korea", wiki: "https://en.wikipedia.org/wiki/Seoul" },
+    { name: "Taipei", country: "Taiwan", wiki: "https://en.wikipedia.org/wiki/Taipei" },
+    { name: "Hyderabad", country: "India", wiki: "https://en.wikipedia.org/wiki/Hyderabad" },
+    { name: "Buenos Aires", country: "Argentina", wiki: "https://en.wikipedia.org/wiki/Buenos_Aires" },
+    { name: "London", country: "UK", wiki: "https://en.wikipedia.org/wiki/London" },
+    { name: "Berlin", country: "Germany", wiki: "https://en.wikipedia.org/wiki/Berlin" },
+    { name: "San Francisco", country: "USA", wiki: "https://en.wikipedia.org/wiki/San_Francisco" },
   ];
 
   return (
@@ -173,7 +173,12 @@ export default function Home() {
 
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
                 {cities.map((city, i) => (
-                  <div key={i} className="relative group">
+                  <Link
+                    key={i}
+                    href={city.wiki}
+                    target="_blank"
+                    className="relative group cursor-pointer"
+                  >
                     {/* Connection line to next city */}
                     {i < cities.length - 1 && (
                       <div className="absolute top-3 left-full w-6 h-px bg-gradient-to-r from-white/30 to-white/10 hidden sm:block" style={{ zIndex: 1 }} />
@@ -187,11 +192,11 @@ export default function Home() {
                         )}
                       </div>
                       <div>
-                        <p className="text-white/90 font-medium leading-tight">{city.name}</p>
-                        <p className="text-sm text-white/60">{city.country}</p>
+                        <p className="text-white/90 font-medium leading-tight group-hover:text-white transition-colors">{city.name}</p>
+                        <p className="text-sm text-white/60 group-hover:text-white/80 transition-colors">{city.country}</p>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>

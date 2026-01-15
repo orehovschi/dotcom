@@ -14,7 +14,7 @@ export default function Projects() {
       description:
         "AI-powered football analytics. Data pipelines for 140+ leagues, ML player valuations, and a text-to-SQL scouting assistant.",
       tags: ["AI", "Python", "SQL", "ML"],
-      link: "https://xval.app",
+      link: "https://www.xval.app",
       image: "/xval.jpeg",
     },
     {
@@ -23,8 +23,28 @@ export default function Projects() {
       description:
         "Deep learning system for classifying lung histopathology images. EfficientNetB0 fine-tuned to ~98% accuracy with Grad-CAM explainability.",
       tags: ["Deep Learning", "TensorFlow", "Medical AI"],
-      github: "https://github.com/liviuorehovschi",
+      github: "https://github.com/liviuorehovschi/capstone",
+      privateNote: "Team project (4 collaborators)",
       image: "/visualhist.jpeg",
+    },
+    {
+      title: "Checkers",
+      subtitle: "Game from Scratch",
+      description:
+        "Built entirely from scratch: custom game engine, custom AI bot with minimax and alpha-beta pruning, and custom frontend design.",
+      tags: ["Python", "AI", "Algorithms", "UI"],
+      github: "https://github.com/liviuorehovschi/checkerscpu",
+      image: "/checkers.jpeg",
+    },
+    {
+      title: "WashBot",
+      subtitle: "Laundry Status Bot",
+      description:
+        "Telegram bot used by 150+ residents to track washer status and receive alerts. Simple utility that solved a daily annoyance.",
+      tags: ["Python", "Telegram API"],
+      github: "https://github.com/MSaadAsad/WashBot",
+      privateNote: "Contributed",
+      image: "/wash.jpeg",
     },
     {
       title: "Oob",
@@ -32,7 +52,7 @@ export default function Projects() {
       description:
         "Full-stack video sharing platform with Django REST backend and React frontend. AI-assisted recommendations using OpenAI embeddings.",
       tags: ["Django", "React", "PostgreSQL"],
-      github: "https://github.com/liviuorehovschi",
+      privateNote: "Team project",
       image: "/oob.jpeg",
     },
     {
@@ -41,26 +61,8 @@ export default function Projects() {
       description:
         "Analyzes Google Maps links using OpenAI and Maps APIs. AI-generated venue summaries and personalized recommendations.",
       tags: ["Flask", "OpenAI API", "Python"],
-      github: "https://github.com/liviuorehovschi",
+      privateNote: "Team project",
       image: "/tonight.jpeg",
-    },
-    {
-      title: "WashBot",
-      subtitle: "Laundry Status Bot",
-      description:
-        "Telegram bot used by 150+ residents to track washer status and receive alerts. Simple utility that solved a daily annoyance.",
-      tags: ["Python", "Telegram API"],
-      github: "https://github.com/liviuorehovschi",
-      image: "/wash.jpeg",
-    },
-    {
-      title: "Checkers AI",
-      subtitle: "Game-Playing Agent",
-      description:
-        "Minimax agent with alpha-beta pruning. Custom heuristics for piece positioning and board control.",
-      tags: ["Python", "AI", "Algorithms"],
-      github: "https://github.com/liviuorehovschi",
-      image: "/checkers.jpeg",
     },
   ];
 
@@ -173,6 +175,11 @@ export default function Projects() {
                   >
                     Code
                   </Link>
+                )}
+                {project.privateNote && (
+                  <span className="text-sm text-white/40 italic">
+                    {project.privateNote}
+                  </span>
                 )}
               </div>
             </div>

@@ -118,7 +118,7 @@ export default function About() {
             <div className="space-y-16">
               <div className="reveal-on-scroll">
                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-4">
-                  <h3 className="font-editorial text-3xl text-white">Minerva University</h3>
+                  <Link href="https://www.minerva.edu" target="_blank" className="font-editorial text-3xl text-white hover:text-white/80 transition-colors">Minerva University</Link>
                   <p className="text-sm text-white/60">2021 — 2025</p>
                 </div>
                 <p className="text-lg text-white/70 mb-2">Dual B.S. in Computational Sciences & Natural Sciences</p>
@@ -142,7 +142,7 @@ export default function About() {
 
               <div className="reveal-on-scroll">
                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-4">
-                  <h3 className="font-editorial text-2xl text-white/80">Westtown School</h3>
+                  <Link href="https://www.westtown.edu" target="_blank" className="font-editorial text-2xl text-white/80 hover:text-white transition-colors">Westtown School</Link>
                   <p className="text-sm text-white/60">2017 — 2018</p>
                 </div>
                 <p className="text-white/60 text-base leading-relaxed max-w-2xl">

@@ -9,12 +9,6 @@ export default function Hobbies() {
 
   const hobbies = [
     {
-      title: "Real Minerva CF",
-      description:
-        "Founded a university football club with 100+ members. Weekly matches, watch events, and training sessions.",
-      image: "/football.jpeg",
-    },
-    {
       title: "Music",
       description:
         "Covers, experiments, and the occasional original.",
@@ -25,21 +19,30 @@ export default function Hobbies() {
       ],
     },
     {
-      title: "Sourdough",
+      title: "Real Minerva CF",
+      description:
+        "Founded a university football club with 100+ members. Weekly matches, watch events, and training sessions.",
+      image: "/football.jpeg",
+      links: [
+        { label: "View Project", url: "https://docs.google.com/presentation/d/1qxuOU49eTxbeTcEZVW7RswxV9vclsTqqyayzY2_0L3s/edit?usp=sharing" },
+      ],
+    },
+    {
+      title: "The Green Tomato Experiment",
+      description:
+        "pH measurements, salt ratios, temperature tracking, reaction dynamics. Pickling taken to near-scientific precision.",
+      image: "/tomato.jpeg",
+      links: [
+        { label: "View Study", url: "https://docs.google.com/presentation/d/1ECuB4Va-G-kjAFkv3wBOxZFCzGv6jmCK5zV9HnUXtx4/edit?usp=sharing" },
+      ],
+    },
+    {
+      title: "Sourdough Starter",
       description:
         "Patience, timing, variables. Each loaf teaches something new.",
       image: "/starter.jpeg",
       links: [
         { label: "View Experiment", url: "https://docs.google.com/presentation/d/1DcVwhZ6pWOuguoKqaqRgnx4Fs1nJjJ7V1Y6alX-dnXc/edit?usp=sharing" },
-      ],
-    },
-    {
-      title: "Fermentation",
-      description:
-        "Exploring how salt, time, and bacteria transform ingredients.",
-      image: "/tomato.jpeg",
-      links: [
-        { label: "Tomato Study", url: "https://docs.google.com/presentation/d/1ECuB4Va-G-kjAFkv3wBOxZFCzGv6jmCK5zV9HnUXtx4/edit" },
       ],
     },
   ];

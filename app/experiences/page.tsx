@@ -1,10 +1,13 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Experiences() {
   const experiences = [
     {
       title: "Co-Founder & Technical Lead",
       company: "xVal",
+      companyUrl: "https://www.xval.app",
       period: "Aug 2025 – Present",
       location: "San Francisco",
       bullets: [
@@ -17,6 +20,7 @@ export default function Experiences() {
     {
       title: "Research Assistant",
       company: "Children Helping Science (MIT)",
+      companyUrl: "https://childrenhelpingscience.com",
       period: "Jan 2025 – May 2025",
       location: "Remote",
       bullets: [
@@ -28,6 +32,7 @@ export default function Experiences() {
     {
       title: "Operations & Data Assistant",
       company: "Minerva University",
+      companyUrl: "https://www.minerva.edu",
       period: "Sep 2021 – Dec 2024",
       location: "San Francisco",
       bullets: [
@@ -39,6 +44,7 @@ export default function Experiences() {
     {
       title: "Field Manager",
       company: "Fund for the Public Interest",
+      companyUrl: "https://www.fundforpublicinterest.org",
       period: "Jun 2024 – Sep 2024",
       location: "Oakland",
       bullets: [
@@ -50,6 +56,7 @@ export default function Experiences() {
     {
       title: "Python & ML Instructor",
       company: "iD Tech Camps",
+      companyUrl: "https://www.idtech.com",
       period: "May 2024 – Sep 2024",
       location: "Remote",
       bullets: [
@@ -61,6 +68,7 @@ export default function Experiences() {
     {
       title: "STEM Mentor",
       company: "Terra Education",
+      companyUrl: "https://www.terra.do",
       period: "Jun 2023 – Jul 2024",
       location: "San Diego",
       bullets: [
@@ -72,6 +80,7 @@ export default function Experiences() {
     {
       title: "Research Intern",
       company: "Mate Marote (UTDT)",
+      companyUrl: "https://matemarote.org.ar/MateMarote/",
       period: "Sep 2023 – Dec 2023",
       location: "Buenos Aires",
       bullets: [
@@ -83,6 +92,7 @@ export default function Experiences() {
     {
       title: "Research Intern",
       company: "Institute of Chemistry",
+      companyUrl: "https://ichem.md/en",
       period: "Aug 2020 – Apr 2021",
       location: "Moldova",
       bullets: [
@@ -94,6 +104,7 @@ export default function Experiences() {
     {
       title: "Sales Agent",
       company: "ASAP Tickets",
+      companyUrl: "https://www.asaptickets.com",
       period: "Feb 2019 – Jul 2019",
       location: "Remote",
       bullets: [
@@ -142,7 +153,7 @@ export default function Experiences() {
                       {exp.title}
                     </h3>
                     <p className="text-sm text-white/60 mb-4">
-                      {exp.company} · {exp.location}
+                      <Link href={exp.companyUrl} target="_blank" className="hover:text-white transition-colors">{exp.company}</Link> · {exp.location}
                     </p>
 
                     <ul className="space-y-2">
