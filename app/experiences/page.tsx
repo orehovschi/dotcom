@@ -44,7 +44,7 @@ export default function Experiences() {
     {
       title: "Field Manager",
       company: "Fund for the Public Interest",
-      companyUrl: "https://www.fundforpublicinterest.org",
+      companyUrl: "https://www.fundforthepublicinterest.org",
       period: "Jun 2024 – Sep 2024",
       location: "Oakland",
       bullets: [
