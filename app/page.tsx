@@ -86,37 +86,40 @@ export default function Home() {
 
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden">
-          {/* Subtle gradient orb behind photo */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-white/[0.03] via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
+        <section className="relative min-h-[90vh] overflow-hidden">
+          {/* Background image with overlay */}
+          <div className="absolute inset-0">
+            <Image
+              src="/me.jpeg"
+              alt="Liviu Orehovschi presenting at pitch night"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            {/* Gradient overlays for readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/70 to-[#0a0a0b]/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0b]/80 via-transparent to-[#0a0a0b]/80" />
+          </div>
 
-          <div className="section-container text-center relative z-10">
-            {/* Profile Photo */}
-            <div className="relative mx-auto mb-8 w-28 h-28 sm:w-32 sm:h-32">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 via-white/5 to-transparent blur-xl" />
-              <div className="relative w-full h-full rounded-full overflow-hidden ring-1 ring-white/10">
-                <Image
-                  src="/me.jpeg"
-                  alt="Liviu Orehovschi"
-                  fill
-                  className="object-cover"
-                  priority
-                />
+          {/* Content */}
+          <div className="relative z-10 flex min-h-[90vh] items-end pb-20 sm:pb-24">
+            <div className="section-container">
+              <div className="max-w-2xl">
+                <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl mb-6">
+                  <span className="gradient-text">Liviu Orehovschi</span>
+                </h1>
+                <p className="text-lg sm:text-xl text-white/70 mb-8 leading-relaxed">
+                  Builder. Engineer. Curious about systems that work.
+                </p>
+                <div className="flex flex-wrap items-center gap-4">
+                  <Link href="/about" className="btn-primary">
+                    About Me
+                  </Link>
+                  <Link href="/projects" className="btn-secondary">
+                    View Work
+                  </Link>
+                </div>
               </div>
-              {/* Subtle animated ring */}
-              <div className="absolute -inset-1 rounded-full border border-white/[0.08] animate-pulse" style={{ animationDuration: '3s' }} />
-            </div>
-
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
-              <span className="gradient-text">Liviu Orehovschi</span>
-            </h1>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Link href="/about" className="btn-primary">
-                About Me
-              </Link>
-              <Link href="/projects" className="btn-secondary">
-                View Work
-              </Link>
             </div>
           </div>
         </section>
