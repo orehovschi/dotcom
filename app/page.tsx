@@ -87,17 +87,23 @@ export default function Home() {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-screen overflow-hidden">
-          {/* Background image with heavy side vignette only */}
+          {/* Background image with stagelight vignette */}
           <div className="absolute inset-0">
             <Image
               src="/me.png"
               alt="Liviu Orehovschi presenting at pitch night"
               fill
-              className="object-cover object-[center_25%] scale-95"
+              className="object-cover object-[center_25%] scale-95 brightness-90 contrast-105"
               priority
             />
-            {/* Heavy side vignettes only - fade to black on left and right edges */}
+            {/* Slight dark tint for text readability */}
+            <div className="absolute inset-0 bg-black/20" />
+            {/* Heavy side vignettes */}
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #0a0a0b 0%, #0a0a0b 5%, transparent 25%, transparent 75%, #0a0a0b 95%, #0a0a0b 100%)' }} />
+            {/* Heavy top vignette */}
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #0a0a0b 0%, #0a0a0b 3%, transparent 20%, transparent 100%)' }} />
+            {/* Heavy bottom vignette */}
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #0a0a0b 0%, #0a0a0b 5%, transparent 30%, transparent 100%)' }} />
           </div>
 
           {/* Content */}
