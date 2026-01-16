@@ -90,7 +90,7 @@ export default function Home() {
           {/* Background image with stagelight vignette */}
           <div className="absolute inset-0">
             <Image
-              src="/me.png"
+              src="/me.jpeg"
               alt="Liviu Orehovschi presenting at pitch night"
               fill
               className="object-cover object-[center_25%] scale-[0.87] brightness-90 contrast-105"
