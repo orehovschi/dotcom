@@ -93,7 +93,7 @@ export default function Home() {
               src="/me.jpeg"
               alt="Liviu Orehovschi presenting at pitch night"
               fill
-              className="object-cover object-center"
+              className="object-cover object-top"
               priority
             />
             {/* Gradient overlays for readability */}
@@ -105,12 +105,9 @@ export default function Home() {
           <div className="relative z-10 flex min-h-[90vh] items-end pb-20 sm:pb-24">
             <div className="section-container">
               <div className="max-w-2xl">
-                <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl mb-6">
+                <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl mb-8">
                   <span className="gradient-text">Liviu Orehovschi</span>
                 </h1>
-                <p className="text-lg sm:text-xl text-white/70 mb-8 leading-relaxed">
-                  Builder. Engineer. Curious about systems that work.
-                </p>
                 <div className="flex flex-wrap items-center gap-4">
                   <Link href="/about" className="btn-primary">
                     About Me
