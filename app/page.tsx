@@ -93,7 +93,7 @@ export default function Home() {
               src="/me.jpeg"
               alt="Liviu Orehovschi presenting at pitch night"
               fill
-              className="object-cover object-top"
+              className="object-contain object-top"
               priority
             />
             {/* Gradient overlays for readability */}
