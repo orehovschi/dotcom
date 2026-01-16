@@ -99,7 +99,7 @@ export default function Home() {
             {/* Dark tint for text readability */}
             <div className="absolute inset-0 bg-black/30" />
             {/* Heavy side vignettes - more padding */}
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #0a0a0b 0%, #0a0a0b 12%, transparent 35%, transparent 65%, #0a0a0b 88%, #0a0a0b 100%)' }} />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #0a0a0b 0%, #0a0a0b 8%, transparent 30%, transparent 70%, #0a0a0b 92%, #0a0a0b 100%)' }} />
             {/* Heavy top vignette */}
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #0a0a0b 0%, #0a0a0b 3%, transparent 20%, transparent 100%)' }} />
             {/* Heavy bottom vignette */}
@@ -107,7 +107,7 @@ export default function Home() {
           </div>
 
           {/* Content */}
-          <div className="relative z-10 flex flex-col min-h-screen justify-end pb-12">
+          <div className="relative z-10 flex flex-col min-h-screen justify-end pb-32">
             {/* Name - positioned just above nav buttons */}
             <div className="section-container mb-10">
               <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
