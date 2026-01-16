@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -85,8 +86,27 @@ export default function Home() {
 
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative flex min-h-[80vh] items-center justify-center">
-          <div className="section-container text-center">
+        <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden">
+          {/* Subtle gradient orb behind photo */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-radial from-white/[0.03] via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
+
+          <div className="section-container text-center relative z-10">
+            {/* Profile Photo */}
+            <div className="relative mx-auto mb-8 w-28 h-28 sm:w-32 sm:h-32">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 via-white/5 to-transparent blur-xl" />
+              <div className="relative w-full h-full rounded-full overflow-hidden ring-1 ring-white/10">
+                <Image
+                  src="/me.jpeg"
+                  alt="Liviu Orehovschi"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* Subtle animated ring */}
+              <div className="absolute -inset-1 rounded-full border border-white/[0.08] animate-pulse" style={{ animationDuration: '3s' }} />
+            </div>
+
             <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
               <span className="gradient-text">Liviu Orehovschi</span>
             </h1>

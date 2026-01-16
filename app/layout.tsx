@@ -16,10 +16,26 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Liviu Orehovschi",
-  description: "Personal portfolio and bio",
+  description: "Software engineer and builder. Co-founder of xVal. Minerva University Class of '25.",
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.png", sizes: "180x180", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    title: "Liviu Orehovschi",
+    description: "Software engineer and builder. Co-founder of xVal. Minerva University Class of '25.",
+    url: "https://liviuorehovschi.com",
+    siteName: "Liviu Orehovschi",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Liviu Orehovschi",
+    description: "Software engineer and builder. Co-founder of xVal.",
   },
 };
 

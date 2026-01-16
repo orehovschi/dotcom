@@ -119,7 +119,7 @@ export default function About() {
               <div className="reveal-on-scroll">
                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-4">
                   <Link href="https://www.minerva.edu" target="_blank" className="font-editorial text-3xl text-white hover:text-white/80 transition-colors">Minerva University</Link>
-                  <p className="text-sm text-white/60">2021 — 2025</p>
+                  <p className="text-sm text-white/60">Class of &apos;25</p>
                 </div>
                 <p className="text-lg text-white/70 mb-2">Dual B.S. in Computational Sciences & Natural Sciences</p>
                 <p className="text-base text-white/60 mb-6">
@@ -143,7 +143,7 @@ export default function About() {
               <div className="reveal-on-scroll">
                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 mb-4">
                   <Link href="https://www.westtown.edu" target="_blank" className="font-editorial text-2xl text-white/80 hover:text-white transition-colors">Westtown School</Link>
-                  <p className="text-sm text-white/60">2017 — 2018</p>
+                  <p className="text-sm text-white/60">Class of &apos;19</p>
                 </div>
                 <p className="text-white/60 text-base leading-relaxed max-w-2xl">
                   Boarding school in Pennsylvania. I mixed a pretty unorthodox set of interests: advanced math and STEM, wrestling and soccer, drawing, vocals and digital music production, plus a part-time job in the school cafeteria. It was intense, but it fit me.
@@ -202,10 +202,12 @@ export default function About() {
 
         {/* Tools */}
         <section className="py-16 px-6">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto space-y-2">
             <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
               <span className="text-white/70">Day-to-day:</span>{" "}
-              Python, TypeScript, SQL, React, Next.js, PostgreSQL, pandas, Git.{" "}
+              Python, TypeScript, SQL, React, Next.js, PostgreSQL, pandas, Git.
+            </p>
+            <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
               <span className="text-white/70">When needed:</span>{" "}
               R, Flask, TensorFlow, Docker, AWS.
             </p>
