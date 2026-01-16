@@ -109,7 +109,7 @@ export default function Home() {
           {/* Content */}
           <div className="relative z-10 flex flex-col min-h-screen justify-end pb-12">
             {/* Name - positioned just above nav buttons */}
-            <div className="section-container mb-6">
+            <div className="section-container mb-10">
               <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
                 <span className="text-white drop-shadow-lg">Liviu Orehovschi</span>
               </h1>
