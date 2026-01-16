@@ -28,9 +28,9 @@ export default function Hobbies() {
       ],
     },
     {
-      title: "The Green Tomato Experiment",
+      title: "The Pickled Tomato Experiment",
       description:
-        "pH measurements, salt ratios, temperature tracking, reaction dynamics. Pickling taken to near-scientific precision.",
+        "pH measurements, salt ratios, temperature tracking, reaction dynamics. A Moldovan staple, approached with near-scientific precision.",
       image: "/tomato.jpeg",
       links: [
         { label: "View Study", url: "https://docs.google.com/presentation/d/1ECuB4Va-G-kjAFkv3wBOxZFCzGv6jmCK5zV9HnUXtx4/edit?usp=sharing" },
@@ -110,10 +110,10 @@ export default function Hobbies() {
             />
 
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
 
             {/* Content */}
-            <div className="absolute inset-0 flex flex-col justify-end p-6">
+            <div className="absolute inset-0 flex flex-col justify-end p-6 z-10">
               {hobby.links && hobby.links.length > 0 ? (
                 <Link
                   href={hobby.links[0].url}
@@ -152,7 +152,7 @@ export default function Hobbies() {
             </div>
 
             {/* Border */}
-            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 pointer-events-none" />
           </div>
         ))}
       </div>

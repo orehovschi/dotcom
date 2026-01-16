@@ -24,7 +24,6 @@ export default function Projects() {
         "Deep learning system for classifying lung histopathology images. EfficientNetB0 fine-tuned to ~98% accuracy with Grad-CAM explainability.",
       tags: ["Deep Learning", "TensorFlow", "Medical AI"],
       github: "https://github.com/liviuorehovschi/capstone",
-      note: "Team project (4 collaborators)",
       image: "/visualhist.jpeg",
     },
     {
@@ -128,10 +127,10 @@ export default function Projects() {
             />
 
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
 
             {/* Content */}
-            <div className="absolute inset-0 flex flex-col justify-end p-6">
+            <div className="absolute inset-0 flex flex-col justify-end p-6 z-10">
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-3">
                 {project.tags.slice(0, 3).map((tag, i) => (
@@ -188,11 +187,6 @@ export default function Projects() {
                     </svg>
                   </Link>
                 )}
-                {project.note && (
-                  <span className="text-sm text-white/50">
-                    {project.note}
-                  </span>
-                )}
                 {project.privateNote && (
                   <span className="text-sm text-white/40 italic">
                     {project.privateNote}
@@ -202,7 +196,7 @@ export default function Projects() {
             </div>
 
             {/* Border */}
-            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 pointer-events-none" />
           </div>
         ))}
       </div>
