@@ -93,11 +93,11 @@ export default function Home() {
               src="/me.jpeg"
               alt="Liviu Orehovschi presenting at pitch night"
               fill
-              className="object-cover object-[center_25%] scale-[0.94] brightness-90 contrast-105"
+              className="object-cover object-[center_25%] scale-[0.94] brightness-[0.75] contrast-105"
               priority
             />
-            {/* Slight dark tint for text readability */}
-            <div className="absolute inset-0 bg-black/20" />
+            {/* Dark tint for text readability */}
+            <div className="absolute inset-0 bg-black/30" />
             {/* Heavy side vignettes - more padding */}
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #0a0a0b 0%, #0a0a0b 12%, transparent 35%, transparent 65%, #0a0a0b 88%, #0a0a0b 100%)' }} />
             {/* Heavy top vignette */}
