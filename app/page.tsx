@@ -87,34 +87,30 @@ export default function Home() {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-screen overflow-hidden">
-          {/* Background image with side vignette only */}
+          {/* Background image with heavy side vignette only */}
           <div className="absolute inset-0">
             <Image
               src="/me.png"
               alt="Liviu Orehovschi presenting at pitch night"
               fill
-              className="object-cover object-[center_25%]"
+              className="object-cover object-[center_25%] scale-95"
               priority
             />
-            {/* Side vignettes only - fade to black on left and right edges */}
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #0a0a0b 0%, transparent 12%, transparent 88%, #0a0a0b 100%)' }} />
-            {/* Subtle bottom fade for text */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b]/80 via-transparent to-transparent" />
+            {/* Heavy side vignettes only - fade to black on left and right edges */}
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #0a0a0b 0%, #0a0a0b 5%, transparent 25%, transparent 75%, #0a0a0b 95%, #0a0a0b 100%)' }} />
           </div>
 
           {/* Content */}
-          <div className="relative z-10 flex flex-col min-h-screen">
-            {/* Name - positioned in upper area */}
-            <div className="flex-1 flex items-center pt-20">
-              <div className="section-container">
-                <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
-                  <span className="text-white drop-shadow-lg">Liviu Orehovschi</span>
-                </h1>
-              </div>
+          <div className="relative z-10 flex flex-col min-h-screen justify-end pb-12">
+            {/* Name - positioned just above nav buttons */}
+            <div className="section-container mb-6">
+              <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
+                <span className="text-white drop-shadow-lg">Liviu Orehovschi</span>
+              </h1>
             </div>
 
             {/* Floating Navigation Links */}
-            <div className="section-container pb-12">
+            <div className="section-container">
               <div className="flex flex-wrap justify-center sm:justify-start gap-x-8 gap-y-4 sm:gap-x-12">
                 {[
                   { href: "/about", title: "About", desc: "Background & education" },
