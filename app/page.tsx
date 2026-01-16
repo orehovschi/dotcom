@@ -87,20 +87,19 @@ export default function Home() {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-screen overflow-hidden">
-          {/* Background image with heavy vignette */}
+          {/* Background image with side vignette only */}
           <div className="absolute inset-0">
             <Image
               src="/me.png"
               alt="Liviu Orehovschi presenting at pitch night"
               fill
-              className="object-contain"
+              className="object-cover object-[center_25%]"
               priority
             />
-            {/* Heavy vignette - fades completely to black at edges */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_center,transparent_0%,rgba(10,10,11,0.3)_30%,rgba(10,10,11,0.7)_50%,rgba(10,10,11,0.95)_70%,#0a0a0b_100%)]" />
-            {/* Extra edge darkening */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0b] via-transparent to-[#0a0a0b]" style={{ background: 'linear-gradient(to right, #0a0a0b 0%, transparent 15%, transparent 85%, #0a0a0b 100%)' }} />
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #0a0a0b 0%, transparent 15%, transparent 75%, #0a0a0b 100%)' }} />
+            {/* Side vignettes only - fade to black on left and right edges */}
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #0a0a0b 0%, transparent 12%, transparent 88%, #0a0a0b 100%)' }} />
+            {/* Subtle bottom fade for text */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b]/80 via-transparent to-transparent" />
           </div>
 
           {/* Content */}
@@ -108,8 +107,8 @@ export default function Home() {
             {/* Name - positioned in upper area */}
             <div className="flex-1 flex items-center pt-20">
               <div className="section-container">
-                <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl drop-shadow-[0_4px_30px_rgba(0,0,0,0.8)] [text-shadow:_0_2px_20px_rgba(0,0,0,0.9),_0_4px_40px_rgba(0,0,0,0.7)]">
-                  <span className="gradient-text">Liviu Orehovschi</span>
+                <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
+                  <span className="text-white drop-shadow-lg">Liviu Orehovschi</span>
                 </h1>
               </div>
             </div>
