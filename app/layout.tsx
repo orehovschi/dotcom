@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import SignatureIntro from "@/components/SignatureIntro";
+import SignatureWatermark from "@/components/SignatureWatermark";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -50,8 +52,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <SignatureIntro />
         <Navbar />
         <main className="pt-16">{children}</main>
+        <SignatureWatermark />
       </body>
     </html>
   );

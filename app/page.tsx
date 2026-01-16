@@ -108,13 +108,6 @@ export default function Home() {
 
           {/* Content */}
           <div className="relative z-10 flex flex-col min-h-screen justify-end pb-32">
-            {/* Name - positioned just above nav buttons */}
-            <div className="section-container mb-10">
-              <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
-                <span className="text-white drop-shadow-lg">Liviu Orehovschi</span>
-              </h1>
-            </div>
-
             {/* Floating Navigation Links */}
             <div className="section-container">
               <div className="flex flex-wrap justify-center sm:justify-start gap-x-8 gap-y-4 sm:gap-x-12">
