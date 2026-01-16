@@ -93,7 +93,7 @@ export default function Home() {
               src="/me.jpeg"
               alt="Liviu Orehovschi presenting at pitch night"
               fill
-              className="object-cover object-[center_25%] scale-[0.87] brightness-90 contrast-105"
+              className="object-cover object-[center_25%] scale-[0.94] brightness-90 contrast-105"
               priority
             />
             {/* Slight dark tint for text readability */}
