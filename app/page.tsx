@@ -87,19 +87,20 @@ export default function Home() {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-screen overflow-hidden">
-          {/* Background image with vignette */}
+          {/* Background image with heavy vignette */}
           <div className="absolute inset-0">
             <Image
               src="/me.png"
               alt="Liviu Orehovschi presenting at pitch night"
               fill
-              className="object-cover object-[center_30%] scale-105"
+              className="object-contain"
               priority
             />
-            {/* Vignette effect - darkens all edges */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(10,10,11,0.4)_60%,rgba(10,10,11,0.9)_100%)]" />
-            {/* Bottom fade for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-transparent to-transparent" />
+            {/* Heavy vignette - fades completely to black at edges */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_center,transparent_0%,rgba(10,10,11,0.3)_30%,rgba(10,10,11,0.7)_50%,rgba(10,10,11,0.95)_70%,#0a0a0b_100%)]" />
+            {/* Extra edge darkening */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0b] via-transparent to-[#0a0a0b]" style={{ background: 'linear-gradient(to right, #0a0a0b 0%, transparent 15%, transparent 85%, #0a0a0b 100%)' }} />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #0a0a0b 0%, transparent 15%, transparent 75%, #0a0a0b 100%)' }} />
           </div>
 
           {/* Content */}
