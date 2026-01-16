@@ -87,17 +87,19 @@ export default function Home() {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-screen overflow-hidden">
-          {/* Background image with overlay */}
+          {/* Background image with vignette */}
           <div className="absolute inset-0">
             <Image
-              src="/me.jpeg"
+              src="/me.png"
               alt="Liviu Orehovschi presenting at pitch night"
               fill
-              className="object-cover object-[center_20%]"
+              className="object-cover object-[center_30%] scale-105"
               priority
             />
-            {/* Gradient overlay - stronger at bottom for cards */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/50 to-transparent" />
+            {/* Vignette effect - darkens all edges */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(10,10,11,0.4)_60%,rgba(10,10,11,0.9)_100%)]" />
+            {/* Bottom fade for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-transparent to-transparent" />
           </div>
 
           {/* Content */}
@@ -111,9 +113,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Navigation Cards - at bottom, over image */}
-            <div className="section-container pb-8">
-              <div className="grid gap-px bg-black/40 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Floating Navigation Links */}
+            <div className="section-container pb-12">
+              <div className="flex flex-wrap justify-center sm:justify-start gap-x-8 gap-y-4 sm:gap-x-12">
                 {[
                   { href: "/about", title: "About", desc: "Background & education" },
                   { href: "/experiences", title: "Experience", desc: "Work history" },
@@ -123,24 +125,18 @@ export default function Home() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group p-5 transition-all duration-300 hover:bg-white/10 border-r border-b border-white/[0.06] last:border-r-0 sm:[&:nth-child(2)]:border-r-0 lg:[&:nth-child(2)]:border-r"
+                    className="group relative"
                   >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="font-medium text-white group-hover:text-white transition-colors">
-                          {item.title}
-                        </h3>
-                        <p className="mt-1 text-sm text-white/60">{item.desc}</p>
-                      </div>
-                      <svg
-                        className="w-4 h-4 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
+                    <div className="text-center sm:text-left">
+                      <h3 className="text-lg sm:text-xl font-medium text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_2px_20px_rgba(255,255,255,0.5)] transition-all duration-300">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-white/50 group-hover:text-white/70 transition-colors">
+                        {item.desc}
+                      </p>
                     </div>
+                    {/* Subtle glow on hover */}
+                    <div className="absolute -inset-3 bg-white/5 rounded-lg opacity-0 group-hover:opacity-100 blur-xl transition-opacity -z-10" />
                   </Link>
                 ))}
               </div>
