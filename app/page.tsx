@@ -108,7 +108,7 @@ export default function Home() {
             {/* Name - positioned in upper area */}
             <div className="flex-1 flex items-center pt-20">
               <div className="section-container">
-                <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
+                <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl drop-shadow-[0_4px_30px_rgba(0,0,0,0.8)] [text-shadow:_0_2px_20px_rgba(0,0,0,0.9),_0_4px_40px_rgba(0,0,0,0.7)]">
                   <span className="gradient-text">Liviu Orehovschi</span>
                 </h1>
               </div>
