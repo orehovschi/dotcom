@@ -24,7 +24,7 @@ export default function Projects() {
         "Deep learning system for classifying lung histopathology images. EfficientNetB0 fine-tuned to ~98% accuracy with Grad-CAM explainability.",
       tags: ["Deep Learning", "TensorFlow", "Medical AI"],
       github: "https://github.com/liviuorehovschi/capstone",
-      privateNote: "Team project (4 collaborators)",
+      note: "Team project (4 collaborators)",
       image: "/visualhist.jpeg",
     },
     {
@@ -43,7 +43,6 @@ export default function Projects() {
         "Telegram bot used by 150+ residents to track washer status and receive alerts. Simple utility that solved a daily annoyance.",
       tags: ["Python", "Telegram API"],
       github: "https://github.com/MSaadAsad/WashBot",
-      privateNote: "Contributed",
       image: "/wash.jpeg",
     },
     {
@@ -52,7 +51,7 @@ export default function Projects() {
       description:
         "Full-stack video sharing platform with Django REST backend and React frontend. AI-assisted recommendations using OpenAI embeddings.",
       tags: ["Django", "React", "PostgreSQL"],
-      privateNote: "Team project",
+      privateNote: "Private repository · Team project · Code available on request",
       image: "/oob.jpeg",
     },
     {
@@ -61,7 +60,7 @@ export default function Projects() {
       description:
         "Analyzes Google Maps links using OpenAI and Maps APIs. AI-generated venue summaries and personalized recommendations.",
       tags: ["Flask", "OpenAI API", "Python"],
-      privateNote: "Team project",
+      privateNote: "Private repository (Minerva University) · Code available on request",
       image: "/tonight.jpeg",
     },
   ];
@@ -145,16 +144,26 @@ export default function Projects() {
                 ))}
               </div>
 
-              <h3 className="text-2xl font-semibold text-white mb-1">
-                {project.title}
-              </h3>
+              {(project.link || project.github) ? (
+                <Link
+                  href={project.link || project.github || "#"}
+                  target="_blank"
+                  className="text-2xl font-semibold text-white mb-1 hover:text-white/80 transition-colors"
+                >
+                  {project.title}
+                </Link>
+              ) : (
+                <h3 className="text-2xl font-semibold text-white mb-1">
+                  {project.title}
+                </h3>
+              )}
               <p className="text-sm text-white/60 mb-3">{project.subtitle}</p>
               <p className="text-base text-white/70 leading-relaxed line-clamp-2 mb-4">
                 {project.description}
               </p>
 
               {/* Links */}
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4">
                 {project.link && (
                   <Link
                     href={project.link}
@@ -171,10 +180,18 @@ export default function Projects() {
                   <Link
                     href={project.github}
                     target="_blank"
-                    className="text-sm text-white/50 hover:text-white transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors"
                   >
-                    Code
+                    View Code
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
                   </Link>
+                )}
+                {project.note && (
+                  <span className="text-sm text-white/50">
+                    {project.note}
+                  </span>
                 )}
                 {project.privateNote && (
                   <span className="text-sm text-white/40 italic">

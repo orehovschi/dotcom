@@ -114,9 +114,19 @@ export default function Hobbies() {
 
             {/* Content */}
             <div className="absolute inset-0 flex flex-col justify-end p-6">
-              <h3 className="text-2xl font-semibold text-white mb-2">
-                {hobby.title}
-              </h3>
+              {hobby.links && hobby.links.length > 0 ? (
+                <Link
+                  href={hobby.links[0].url}
+                  target="_blank"
+                  className="text-2xl font-semibold text-white mb-2 hover:text-white/80 transition-colors"
+                >
+                  {hobby.title}
+                </Link>
+              ) : (
+                <h3 className="text-2xl font-semibold text-white mb-2">
+                  {hobby.title}
+                </h3>
+              )}
               <p className="text-base text-white/70 leading-relaxed mb-4">
                 {hobby.description}
               </p>
@@ -129,7 +139,7 @@ export default function Hobbies() {
                       key={i}
                       href={link.url}
                       target="_blank"
-                      className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors"
                     >
                       {link.label}
                       <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
