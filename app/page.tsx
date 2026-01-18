@@ -3,6 +3,17 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+// Dynamic import for Leaflet (requires window)
+const WorldMap = dynamic(() => import("@/components/WorldMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[400px] rounded border border-[var(--glass-border)] bg-[var(--background)] flex items-center justify-center">
+      <span className="text-[var(--muted)] text-sm">Loading map...</span>
+    </div>
+  ),
+});
 
 export default function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -25,21 +36,6 @@ export default function Home() {
 
     return () => observerRef.current?.disconnect();
   }, []);
-
-  const cities = [
-    { name: "Soroca (Nimereuca)", country: "Moldova", wiki: "https://en.wikipedia.org/wiki/Soroca" },
-    { name: "Chișinău", country: "Moldova", wiki: "https://en.wikipedia.org/wiki/Chi%C8%99in%C4%83u" },
-    { name: "Philadelphia", country: "USA", wiki: "https://en.wikipedia.org/wiki/Philadelphia" },
-    { name: "Siegen", country: "Germany", wiki: "https://en.wikipedia.org/wiki/Siegen" },
-    { name: "Dublin", country: "Ireland", wiki: "https://en.wikipedia.org/wiki/Dublin" },
-    { name: "Seoul", country: "South Korea", wiki: "https://en.wikipedia.org/wiki/Seoul" },
-    { name: "Taipei", country: "Taiwan", wiki: "https://en.wikipedia.org/wiki/Taipei" },
-    { name: "Hyderabad", country: "India", wiki: "https://en.wikipedia.org/wiki/Hyderabad" },
-    { name: "Buenos Aires", country: "Argentina", wiki: "https://en.wikipedia.org/wiki/Buenos_Aires" },
-    { name: "London", country: "UK", wiki: "https://en.wikipedia.org/wiki/London" },
-    { name: "Berlin", country: "Germany", wiki: "https://en.wikipedia.org/wiki/Berlin" },
-    { name: "San Francisco", country: "USA", wiki: "https://en.wikipedia.org/wiki/San_Francisco" },
-  ];
 
   return (
     <>
@@ -141,9 +137,18 @@ export default function Home() {
 
         {/* Editorial Intro Section */}
         <section className="py-20 border-t border-[var(--glass-border)]">
-          <div className="max-w-3xl mx-auto px-6">
+          <div className="max-w-3xl mx-auto px-6 space-y-6">
             <p className="reveal-on-scroll text-xl md:text-2xl text-white/80 leading-relaxed font-light">
-              I&apos;m Liviu. I grew up in <span className="highlight-word">Moldova</span> and somehow ended up in the Bay Area. I&apos;m working on <Link href="https://xval.app" target="_blank" className="text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/40">xVal</Link>, which started as a way to think more clearly about football and turned into something bigger. I like building things, but I don&apos;t like pretending work explains a whole person. I care about ideas, sports, food, and the small details that make something feel right. I&apos;m curious, opinionated, and I tend to follow problems longer than I probably should.
+              I&apos;m Liviu. I grew up in <span className="highlight-word">Moldova</span> and somehow ended up in the Bay Area. I&apos;m building <Link href="https://xval.app" target="_blank" className="text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/40">xVal</Link> because I got tired of football debates that end with &quot;trust me bro&quot; and a screenshot.
+            </p>
+            <p className="reveal-on-scroll text-xl md:text-2xl text-white/80 leading-relaxed font-light">
+              I&apos;m intense about the work, not performative about it. I like direct conversations, real constraints, and finishing the job without the ceremony.
+            </p>
+            <p className="reveal-on-scroll text-xl md:text-2xl text-white/80 leading-relaxed font-light">
+              Outside of work, I&apos;m usually in the kitchen or in my head. I cook a lot, study world cuisines, and treat fermentation like a long running side quest: sourdough from scratch, pickles, brines, experiments that take days and reward patience. I grew up in a Moldovan village where you plant things, harvest things, and learn early that from scratch is not a brand.
+            </p>
+            <p className="reveal-on-scroll text-xl md:text-2xl text-white/80 leading-relaxed font-light">
+              I also like poetry, folklore, and the performing arts. I draw, I sing, I play instruments, and I have a soft spot for drama in the artistic sense, not the workplace sense.
             </p>
           </div>
         </section>
@@ -151,62 +156,24 @@ export default function Home() {
         {/* The Journey - Cities */}
         <section className="py-24 px-6 border-t border-[var(--glass-border)]">
           <div className="max-w-4xl mx-auto">
-            <div className="reveal-on-scroll mb-16">
+            <div className="reveal-on-scroll mb-12">
               <p className="font-editorial text-2xl md:text-3xl text-white/90 leading-snug">
                 I&apos;ve lived in 12 cities across four continents.
               </p>
-              <p className="text-lg text-white/60 mt-3 leading-relaxed">
-                This sounds impressive on paper. In practice, it mostly means I pack fast and notice patterns.
+              <p className="text-base text-white/50 mt-3">
+                Sounds glamorous until you realize it mostly means I got good at packing and saying goodbye.
               </p>
             </div>
 
-            {/* Cities as connected route map */}
-            <div className="reveal-on-scroll relative">
-              {/* SVG connecting lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="rgba(255,255,255,0.3)" />
-                    <stop offset="100%" stopColor="rgba(255,255,255,0.1)" />
-                  </linearGradient>
-                </defs>
-              </svg>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-                {cities.map((city, i) => (
-                  <Link
-                    key={i}
-                    href={city.wiki}
-                    target="_blank"
-                    className="relative group cursor-pointer"
-                  >
-                    {/* Connection line to next city */}
-                    {i < cities.length - 1 && (
-                      <div className="absolute top-3 left-full w-6 h-px bg-gradient-to-r from-white/30 to-white/10 hidden sm:block" style={{ zIndex: 1 }} />
-                    )}
-                    {/* Dot */}
-                    <div className="flex items-start gap-3">
-                      <div className="relative mt-1.5">
-                        <div className="w-2.5 h-2.5 rounded-full bg-white/40 group-hover:bg-white/70 transition-colors" />
-                        {i < cities.length - 1 && (
-                          <div className="absolute top-full left-1/2 -translate-x-1/2 w-px h-6 bg-gradient-to-b from-white/20 to-transparent sm:hidden" />
-                        )}
-                      </div>
-                      <div>
-                        <p className="text-white/90 font-medium leading-tight group-hover:text-white transition-colors">{city.name}</p>
-                        <p className="text-sm text-white/60 group-hover:text-white/80 transition-colors">{city.country}</p>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+            {/* Interactive World Map */}
+            <div className="reveal-on-scroll">
+              <WorldMap />
             </div>
 
             {/* Closing line */}
-            <div className="reveal-on-scroll mt-16">
-              <p className="text-lg text-white/70 leading-relaxed">
-                I don&apos;t think any one place explains a person.<br />
-                But together, they leave a shape.
+            <div className="reveal-on-scroll mt-12">
+              <p className="text-base text-white/40">
+                One pin, one story.
               </p>
             </div>
           </div>

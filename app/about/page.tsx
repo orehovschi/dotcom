@@ -1,20 +1,96 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 export default function About() {
   const containerRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [courseworkExpanded, setCourseworkExpanded] = useState(false);
 
   const storyParagraphs = [
-    
-  "I was born in Nimereuca, Soroca in northern Moldova. I only lived there for about a year, but it still feels like the real beginning of my story. Most of my childhood and school years were in Chișinău, the capital, where everything moved faster and the world felt bigger. Even then, I was the kind of kid who wanted to know what was on the other side of the map, not because I was chasing something shiny, but because I was curious and a little restless.",
-  "Before university, I was already moving around. I travelled, took internships, and said yes to chances that sounded slightly uncomfortable, which usually meant they were worth doing. By the time I started college, I had learned a simple lesson. New places do not just change what you see. They change what you get used to. You learn what you miss, what you tolerate, what you value, and what kind of person you become when nobody knows you yet.",
-  "University took that to another level. I lived in more than nine countries and travelled through many more. After a while you stop being impressed by airports and start noticing patterns. How teams actually work. How incentives shape behavior. How culture shows up in small things like punctuality, honesty, or who speaks first in a room. I think that is where my interest in systems came from.",
-  "I graduated in two fields because I could not pick a single lens. I like the precision of technical work and the messiness of real life. I like building things, seeing what happens, and adjusting until it feels solid. Sometimes that looks like software and models. Sometimes it looks like organizing a football community from scratch. Sometimes it looks like a fermentation experiment where the data is bubbles, smell, and whether the bread actually rises.",
-  "If there is a common thread, it is that I like doing things properly and I care about clarity. I do not need everything to be perfect, but I do try to be honest about what works and what does not. I learn fast, I follow through, and I like turning messy problems into something simpler and easier to use."
+    "I was born in Nimereuca, near Soroca. I do not remember it, but it still feels like the start. I grew up in Chișinău, which is where I learned two things: how to move fast, and how to have opinions.",
+    "I started leaving early. Internships, odd jobs, trips that looked unnecessary until they were not. By university, moving countries became normal. The glamorous part wears off quickly. Then you start noticing the real stuff: who shows up, who flakes, who performs confidence, who actually does the work. Different places, same human bugs.",
+    "I did two majors because they did not let me do three. I like clean logic, and I like real life, even when it refuses to be clean. I am drawn to ambitious problems, sharp teams, and situations where you have to figure it out as you go.",
+    "I am not chill. I am just professional about it."
   ];
+
+  const courseworkByType = {
+    CS: {
+      label: "Computational Sciences",
+      courses: [
+        "CS162 Software Engineering: Building Powerful Applications",
+        "CS152 Theory and Applications of Artificial Intelligence",
+        "CS142 Theory of Computation",
+        "CS130 Statistical Modeling: Prediction and Causation",
+        "CS114 Probability and Statistics and the Structure of Randomness",
+        "CS113 Theory and Applications of Linear Algebra",
+        "CS111 Single and Multivariable Calculus",
+        "CS110 Problem Solving with Data Structures and Algorithms",
+        "CS51B Programming",
+        "CS51 Formal Analyses",
+        "CS50 Formal Analyses",
+      ],
+    },
+    NS: {
+      label: "Natural Sciences",
+      courses: [
+        "NS164 Solutions From and For Life",
+        "NS154 Life's Chemistry",
+        "NS144 Genes to Organisms",
+        "NS125 Research Methods",
+        "NS113 Chemical Structure and Reactivity",
+        "NS112 Evolution Across Multiple Scales",
+        "NS111 Implications of Earth's Cycles",
+        "NS110L Physics of Life",
+        "NS51 Empirical Analyses",
+        "NS50 Empirical Analyses",
+      ],
+    },
+    SS: {
+      label: "Social Sciences",
+      courses: [
+        "SS51 Complex Systems",
+        "SS50 Complex Systems",
+      ],
+    },
+    AH: {
+      label: "Arts & Humanities",
+      courses: [
+        "AH51 Multimodal Communications",
+        "AH50 Multimodal Communications",
+      ],
+    },
+    IL: {
+      label: "Intercultural Learning",
+      courses: [
+        "IL94 Integrated Learning IV: Managing Complexity",
+        "IL93 Integrated Learning III: Managing Complexity",
+        "IL92 Integrated Learning II: Managing Complexity",
+        "IL91 Integrated Learning I: Managing Complexity",
+      ],
+    },
+    GL: {
+      label: "Global Learning",
+      courses: [
+        "GL98 Global Learning VIII",
+        "GL97 Global Learning VII",
+        "GL96 Global Learning VI",
+        "GL95 Global Learning V",
+      ],
+    },
+    CP: {
+      label: "Capstone Projects",
+      courses: [
+        "CP196 Manifest",
+        "CP194 Capstone Directed Study II",
+        "CP193 Capstone Directed Study I",
+        "CP192 Capstone Seminar",
+        "CP191 Capstone Seminar",
+        "CCP50 Cornerstone Civic Project",
+      ],
+    },
+  };
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -83,9 +159,9 @@ export default function About() {
       {/* Hero Opening */}
       <section className="pt-32 pb-24 px-6">
         <div className="max-w-4xl mx-auto">
-          <h1 className="reveal-on-scroll font-editorial text-5xl sm:text-6xl md:text-7xl font-medium text-white leading-[1.1] tracking-tight">
-            I grew up moving a lot,<br />
-            <span className="text-white/50">so I pay attention to what lasts.</span>
+          <h1 className="reveal-on-scroll font-editorial text-4xl sm:text-5xl md:text-6xl font-medium text-white leading-[1.15] tracking-tight">
+            I did the global thing for real.<br />
+            <span className="text-white/50">I learned what reliable sounds like in ten different accents.</span>
           </h1>
         </div>
       </section>
@@ -126,18 +202,55 @@ export default function About() {
                   Concentrations: Computer Science & AI · Cells and Organisms
                 </p>
                 <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-4">
-                  Minerva is a global university with no single campus. Classes were live and discussion-heavy while we rotated across seven countries. I took two of Minerva&apos;s hardest majors at the same time, worked alongside school, and still leaned into the travel and the community side of it.
+                  Minerva is a global university with no single campus. Classes were live and discussion heavy, and we rotated across seven countries. It is small, selective, and a little weird in the best way. In 2025, <Link href="https://www.wuri.world/wuri-ranking-2025" target="_blank" className="text-white/80 underline underline-offset-2 decoration-white/30 hover:decoration-white/60 transition-colors">WURI ranked Minerva number 1 in the world</Link> for innovation.
                 </p>
                 <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-4">
-                  I served as Student Body President and founded Minerva Football Club. The club became one of the most consistent parts of campus life across rotations, and it taught me a lot about building community, following through, and making something people actually want to keep showing up for.
+                  I served as Student Body President and founded Minerva Football Club. The club became one of the most consistent parts of student life across rotations. It taught me how to get people to care, keep momentum, and run something that actually lasts.
+                </p>
+                <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-4">
+                  I started university leaning toward biology. Computer science came in along the way. It was not perfectly planned. I just kept ending up in situations where technical skill mattered, and I liked that.
                 </p>
                 <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-6">
-                  I started university more pulled toward biology, and computer science became part of the picture along the way. It wasn&apos;t some perfectly planned path. I just kept ending up in situations where being able to build and think technically made the difference, and I liked that.
+                  I also got lucky with professors. Special thanks to{" "}
+                  <Link href="https://www.minerva.edu/people/rena-levitt-ph-d/" target="_blank" className="text-white/80 hover:text-white transition-colors">Rena Levitt</Link>,{" "}
+                  <Link href="https://www.minerva.edu/people/john-levitt-ph-d/" target="_blank" className="text-white/80 hover:text-white transition-colors">John Levitt</Link>, and{" "}
+                  <Link href="https://www.minerva.edu/people/katie-donnelly/" target="_blank" className="text-white/80 hover:text-white transition-colors">Katie Donnelly</Link>. And especially{" "}
+                  <Link href="https://www.minerva.edu/people/jon-wilkins/" target="_blank" className="text-white/80 hover:text-white transition-colors">Jon Wilkins</Link>, my capstone advisor and my favorite professor.
                 </p>
-                <p className="text-white/60 text-base leading-relaxed max-w-2xl mt-6">
-                  <span className="text-white/70">Coursework that stuck with me:</span>{" "}
-                  Software Engineering, AI Theory, Theory of Computation, Statistical Modeling, Data Structures, Linear Algebra, Probability & Stats, Complex Systems, Genes to Organisms, Evolution, Physics of Life.
-                </p>
+
+                {/* Expandable Coursework */}
+                <div className="mt-6">
+                  <button
+                    onClick={() => setCourseworkExpanded(!courseworkExpanded)}
+                    className="group inline-flex items-center gap-2 text-sm text-white/60 hover:text-white/80 transition-colors"
+                  >
+                    <span>Coursework</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-200 ${courseworkExpanded ? 'rotate-180' : ''}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-out ${
+                      courseworkExpanded ? 'max-h-[800px] opacity-100 mt-4' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="space-y-3">
+                      {Object.entries(courseworkByType).map(([key, { label, courses }]) => (
+                        <div key={key}>
+                          <span className="text-xs text-white/40 uppercase tracking-wider">{label}</span>
+                          <p className="text-sm text-white/50 leading-relaxed mt-1">
+                            {courses.join(", ")}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div className="reveal-on-scroll">
@@ -145,8 +258,11 @@ export default function About() {
                   <Link href="https://www.westtown.edu" target="_blank" className="font-editorial text-2xl text-white/80 hover:text-white transition-colors">Westtown School</Link>
                   <p className="text-sm text-white/60">Class of &apos;19</p>
                 </div>
-                <p className="text-white/60 text-base leading-relaxed max-w-2xl">
+                <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-3">
                   Boarding school in Pennsylvania. I mixed a pretty unorthodox set of interests: advanced math and STEM, wrestling and soccer, drawing, vocals and digital music production, plus a part-time job in the school cafeteria. It was intense, but it fit me.
+                </p>
+                <p className="text-white/60 text-base leading-relaxed max-w-2xl">
+                  <Link href="https://www.assistscholars.org" target="_blank" className="text-white/80 hover:text-white transition-colors">ASSIST scholarship award</Link>. <Link href="https://nationalspanishexam.org/" target="_blank" className="text-white/80 hover:text-white transition-colors">National Spanish Exam</Link> medalist. Academic distinction.
                 </p>
               </div>
             </div>
