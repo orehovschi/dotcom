@@ -8,6 +8,7 @@ export default function Experiences() {
       title: "Co-Founder & Technical Lead",
       company: "xVal",
       companyUrl: "https://www.xval.app",
+      preview: "/previews/xval.jpg",
       period: "Aug 2025 – Present",
       location: "San Francisco",
       bullets: [
@@ -21,6 +22,7 @@ export default function Experiences() {
       title: "Research Assistant",
       company: "Children Helping Science (MIT)",
       companyUrl: "https://childrenhelpingscience.com",
+      preview: "/previews/childrenhelpingscience.jpg",
       period: "Jan 2025 – May 2025",
       location: "Remote",
       bullets: [
@@ -33,6 +35,7 @@ export default function Experiences() {
       title: "Operations & Data Assistant",
       company: "Minerva University",
       companyUrl: "https://www.minerva.edu",
+      preview: "/previews/minerva.jpg",
       period: "Sep 2021 – Dec 2024",
       location: "San Francisco",
       bullets: [
@@ -45,6 +48,7 @@ export default function Experiences() {
       title: "Field Manager",
       company: "Fund for the Public Interest",
       companyUrl: "https://www.fundforthepublicinterest.org",
+      preview: "/previews/fundpublicinterest.jpg",
       period: "Jun 2024 – Sep 2024",
       location: "Oakland",
       bullets: [
@@ -57,6 +61,7 @@ export default function Experiences() {
       title: "Python & ML Instructor",
       company: "iD Tech Camps",
       companyUrl: "https://www.idtech.com",
+      preview: "/previews/idtech.jpg",
       period: "May 2024 – Sep 2024",
       location: "Remote",
       bullets: [
@@ -69,6 +74,7 @@ export default function Experiences() {
       title: "STEM Mentor",
       company: "Terra Education",
       companyUrl: "https://www.terraeducation.com",
+      preview: "/previews/terraeducation.jpg",
       period: "Jun 2023 – Jul 2024",
       location: "San Diego",
       bullets: [
@@ -81,6 +87,7 @@ export default function Experiences() {
       title: "Research Intern",
       company: "Mate Marote (UTDT)",
       companyUrl: "https://matemarote.org.ar/MateMarote/",
+      preview: "/previews/matemarote.jpg",
       period: "Sep 2023 – Dec 2023",
       location: "Buenos Aires",
       bullets: [
@@ -93,6 +100,7 @@ export default function Experiences() {
       title: "Research Intern",
       company: "Institute of Chemistry",
       companyUrl: "https://ichem.md/en",
+      preview: "/previews/ichem.jpg",
       period: "Aug 2020 – Apr 2021",
       location: "Moldova",
       bullets: [
@@ -105,6 +113,7 @@ export default function Experiences() {
       title: "Sales Agent",
       company: "ASAP Tickets",
       companyUrl: "https://www.asaptickets.com",
+      preview: "/previews/asaptickets.jpg",
       period: "Feb 2019 – Jul 2019",
       location: "Remote",
       bullets: [
@@ -143,27 +152,39 @@ export default function Experiences() {
 
                 {/* Content */}
                 <div className="md:w-1/2 md:px-8 pl-8 md:pl-0">
-                  <div className="group relative rounded-2xl p-6 bg-gradient-to-br from-white/[0.03] to-transparent border border-white/[0.06] hover:border-white/[0.12] hover:from-white/[0.05] transition-all duration-300">
-                    {/* Period badge */}
-                    <span className="inline-block px-3 py-1 mb-4 text-[10px] font-medium uppercase tracking-wider rounded-full bg-white/5 text-white/50">
-                      {exp.period}
-                    </span>
+                  <div className="group relative rounded-2xl overflow-hidden bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/[0.1] hover:border-white/[0.2] transition-all duration-500 shadow-[0_4px_40px_rgba(255,255,255,0.07),0_0_80px_rgba(255,255,255,0.04),inset_0_1px_0_rgba(255,255,255,0.1)] hover:shadow-[0_8px_60px_rgba(255,255,255,0.12),0_0_100px_rgba(255,255,255,0.06),inset_0_1px_0_rgba(255,255,255,0.15)] hover:translate-y-[-2px]">
+                    {/* Site Preview */}
+                    <Link href={exp.companyUrl} target="_blank" className="block relative h-32 overflow-hidden border-b border-white/[0.06]">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-transparent to-transparent z-10 opacity-60" />
+                      <img
+                        src={exp.preview}
+                        alt={`${exp.company} preview`}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </Link>
 
-                    <h3 className="text-lg font-semibold text-white mb-1">
-                      {exp.title}
-                    </h3>
-                    <p className="text-sm text-white/60 mb-4">
-                      <Link href={exp.companyUrl} target="_blank" className="hover:text-white transition-colors">{exp.company}</Link> · {exp.location}
-                    </p>
+                    <div className="p-6">
+                      {/* Period badge */}
+                      <span className="inline-block px-3 py-1 mb-4 text-[10px] font-medium uppercase tracking-wider rounded-full bg-white/5 text-white/50">
+                        {exp.period}
+                      </span>
 
-                    <ul className="space-y-2">
-                      {exp.bullets.map((bullet, i) => (
-                        <li key={i} className="flex gap-3 text-base text-white/70 leading-relaxed">
-                          <span className="text-white/60 mt-0.5">›</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                      <h3 className="text-lg font-semibold text-white mb-1">
+                        {exp.title}
+                      </h3>
+                      <p className="text-sm text-white/60 mb-4">
+                        <Link href={exp.companyUrl} target="_blank" className="hover:text-white transition-colors">{exp.company}</Link> · {exp.location}
+                      </p>
+
+                      <ul className="space-y-2">
+                        {exp.bullets.map((bullet, i) => (
+                          <li key={i} className="flex gap-3 text-base text-white/70 leading-relaxed">
+                            <span className="text-white/60 mt-0.5">›</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
 
