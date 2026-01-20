@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MapContainer, TileLayer, CircleMarker, Tooltip, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Tooltip, useMap } from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 // ============================================
@@ -105,6 +106,30 @@ const cities = [
     preview: "Faced with big problems. Had my first accident—learned about insurance, police, law. As student body president, I navigated a crisis when U.S. government rule changes impacted my entire university. Led a stressful cohort-wide move across the ocean. Final semester abroad.",
   },
 ];
+
+// Create custom pin icon - needle with marble on top
+function createPinIcon() {
+  const svgPin = `
+    <svg width="14" height="26" viewBox="0 0 14 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Needle - wide at top near marble, tapers to sharp point at bottom -->
+      <path d="M5.5 12 L7 26 L8.5 12" fill="white" opacity="0.9"/>
+      <!-- Marble edge/contour -->
+      <circle cx="7" cy="7" r="6.5" fill="none" stroke="rgba(0,0,0,0.25)" stroke-width="1"/>
+      <!-- Marble head -->
+      <circle cx="7" cy="7" r="6" fill="white"/>
+      <!-- Marble shine/highlight -->
+      <circle cx="4.5" cy="4.5" r="2" fill="rgba(255,255,255,0.5)"/>
+    </svg>
+  `;
+
+  return L.divIcon({
+    html: `<div class="map-pin">${svgPin}</div>`,
+    className: '',
+    iconSize: [14, 26],
+    iconAnchor: [7, 26],
+    tooltipAnchor: [0, -26],
+  });
+}
 
 // Country code to flag emoji
 function getFlagEmoji(countryCode: string) {
@@ -258,19 +283,30 @@ export default function WorldMap() {
           font-family: inherit;
         }
 
-        /* Muted dark map tiles */
+        /* Brighter map tiles for outdoor visibility */
         .world-map-container .leaflet-tile-pane {
-          filter: invert(1) grayscale(100%) brightness(0.78) contrast(1.05);
+          filter: invert(1) grayscale(100%) brightness(1.3) contrast(1.05);
         }
 
-        /* Pin glow effect */
-        .world-map-container .leaflet-overlay-pane svg path {
+        /* Custom pin markers */
+        .map-pin {
+          position: relative;
+          cursor: pointer !important;
+        }
+
+        .map-pin svg {
+          filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
           transition: all 0.2s ease;
-          filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
         }
 
-        .world-map-container .leaflet-overlay-pane svg path:hover {
-          filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+        .map-pin:hover svg {
+          filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+          transform: scale(1.1);
+        }
+
+        .world-map-container .leaflet-marker-icon {
+          background: none !important;
+          border: none !important;
         }
 
         .world-map-container .leaflet-interactive {
@@ -296,7 +332,7 @@ export default function WorldMap() {
         }
 
         .world-map-container .leaflet-tooltip-top {
-          margin-top: -8px;
+          margin-top: -4px;
         }
 
         /* Hide zoom controls */
@@ -307,6 +343,66 @@ export default function WorldMap() {
         /* Hide attribution */
         .world-map-container .leaflet-control-attribution {
           display: none !important;
+        }
+
+        /* Interactive hint - hidden by default, shows on map hover */
+        .map-hint {
+          position: absolute;
+          bottom: 16px;
+          left: 50%;
+          transform: translateX(-50%) translateY(10px);
+          z-index: 500;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background: rgba(0, 0, 0, 0.6);
+          backdrop-filter: blur(8px);
+          padding: 8px 14px;
+          border-radius: 20px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 0.75rem;
+          pointer-events: none;
+          opacity: 0;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .world-map-container:hover .map-hint {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
+
+        .map-hint-dot {
+          width: 8px;
+          height: 8px;
+          background: #fff;
+          border-radius: 50%;
+          animation: hintPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes hintPulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.3); opacity: 0.6; }
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+          .world-map-container {
+            height: 400px;
+          }
+
+          .map-hint {
+            bottom: 12px;
+            padding: 6px 12px;
+            font-size: 0.7rem;
+          }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+          /* Touch devices - remove pulse animation for cleaner look */
+          .world-map-container .leaflet-overlay-pane svg circle {
+            animation: none;
+          }
         }
 
         /* ============================================
@@ -519,47 +615,31 @@ export default function WorldMap() {
           <MapClickHandler onMapClick={() => setSelectedCity(null)} />
 
           {cities.map((city, index) => (
-            <CircleMarker
+            <Marker
               key={index}
-              center={city.coords}
-              radius={4}
-              pathOptions={{
-                color: "rgba(255, 255, 255, 0.9)",
-                fillColor: "#fff",
-                fillOpacity: 1,
-                weight: 1.5,
-              }}
+              position={city.coords}
+              icon={createPinIcon()}
               eventHandlers={{
                 click: (e) => {
-                  e.originalEvent.stopPropagation();
+                  L.DomEvent.stopPropagation(e);
                   setSelectedCity(city);
-                },
-                mouseover: (e) => {
-                  e.target.setStyle({
-                    color: "rgba(255, 255, 255, 1)",
-                    fillColor: "#fff",
-                    fillOpacity: 1,
-                    weight: 1.5,
-                  });
-                  e.target.setRadius(6);
-                },
-                mouseout: (e) => {
-                  e.target.setStyle({
-                    color: "rgba(255, 255, 255, 0.9)",
-                    fillColor: "#fff",
-                    fillOpacity: 1,
-                    weight: 1.5,
-                  });
-                  e.target.setRadius(4);
                 },
               }}
             >
-              <Tooltip direction="top" offset={[0, -8]}>
+              <Tooltip direction="top">
                 {city.name}
               </Tooltip>
-            </CircleMarker>
+            </Marker>
           ))}
         </MapContainer>
+
+        {/* Interactive hint */}
+        {!selectedCity && (
+          <div className="map-hint">
+            <span className="map-hint-dot" />
+            <span>Tap a pin to explore</span>
+          </div>
+        )}
 
         {/* Centered City Card */}
         {selectedCity && (
