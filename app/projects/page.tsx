@@ -3,12 +3,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRef, useState } from "react";
+type Project = {
+  live?: {
+    url: string;
+    label: string;
+  };
+};
+
 
 export default function Projects() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [previewIndex, setPreviewIndex] = useState<number | null>(null);
 
-  const projects = [
+  const projects: Project[] = [
     {
       title: "xVal",
       subtitle: "Sports Intelligence Platform",
@@ -234,39 +241,57 @@ export default function Projects() {
                 {project.description}
               </p>
 
-              {/* Links */}
-              <div className="flex flex-wrap items-center gap-4">
-                {project.link && (
-                  <Link
-                    href={project.link}
-                    target="_blank"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-white/80 transition-colors"
+            {/* Links */}
+            <div className="flex flex-wrap gap-3 mt-6">
+              {/* Primary: Live app */}
+              {projects[previewIndex].live && (
+                <Link
+                  href={projects[previewIndex].live.url}
+                  target="_blank"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-medium hover:bg-white/90 transition-colors"
+                >
+                  {projects[previewIndex].live.label}
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
                   >
-                    Visit
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                )}
-                {project.github && (
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors"
-                  >
-                    View Code
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </Link>
-                )}
-                {project.privateNote && (
-                  <span className="text-sm text-white/40 italic">
-                    {project.privateNote}
-                  </span>
-                )}
-              </div>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </Link>
+              )}
+            
+              {/* Fallback */}
+              {!projects[previewIndex].live && projects[previewIndex].link && (
+                <Link
+                  href={projects[previewIndex].link}
+                  target="_blank"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-medium hover:bg-white/90 transition-colors"
+                >
+                  Visit Project
+                </Link>
+              )}
+            
+              {/* Secondary: Code */}
+              {projects[previewIndex].github && (
+                <Link
+                  href={projects[previewIndex].github}
+                  target="_blank"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 text-white/70 text-sm font-medium hover:bg-white/5 hover:text-white transition-colors"
+                >
+                  View Code
+                </Link>
+              )}
             </div>
+            
+                          
+
 
             {/* Border */}
             <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 pointer-events-none" />
@@ -350,32 +375,60 @@ export default function Projects() {
               </div>
 
               {/* Links */}
-              <div className="flex flex-wrap gap-3 mt-6">
-                {projects[previewIndex].link && (
+              <div className="flex flex-wrap items-center gap-4">
+                {/* Primary action: Live app */}
+                {project.live && (
                   <Link
-                    href={projects[previewIndex].link}
+                    href={project.live.url}
                     target="_blank"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-medium hover:bg-white/90 transition-colors"
                   >
-                    Visit Project
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    {project.live.label}
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
                     </svg>
                   </Link>
                 )}
-                {projects[previewIndex].github && (
+              
+                {/* Fallback primary (projects without live app) */}
+                {!project.live && project.link && (
                   <Link
-                    href={projects[previewIndex].github}
+                    href={project.link}
                     target="_blank"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 text-white/70 text-sm font-medium hover:bg-white/5 hover:text-white transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-white/80 transition-colors"
+                  >
+                    Visit
+                  </Link>
+                )}
+              
+                {/* Secondary action: Code */}
+                {project.github && (
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors"
                   >
                     View Code
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
                   </Link>
                 )}
+              
+                {project.privateNote && (
+                  <span className="text-sm text-white/40 italic">
+                    {project.privateNote}
+                  </span>
+                )}
               </div>
+
             </div>
           </div>
         </div>
