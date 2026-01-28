@@ -40,19 +40,20 @@ export default function Projects() {
       details: {
         role: "Co-Founder & Technical Lead",
         highlights: [
-          "Architected end-to-end data infrastructure processing 140+ football leagues, 500K+ players, and 2M+ historical matches",
-          "Built ML-powered player valuation models using embeddings and similarity search for talent identification",
-          "Developed a natural language scouting assistant that converts plain English queries into complex SQL",
-          "Full-stack ownership: React frontend, Python backend, PostgreSQL database, deployed on AWS",
+          "End-to-end data infrastructure across 140+ leagues",
+          "ML-based player valuation and similarity search",
+          "Natural language scouting assistant",
+          "Full-stack ownership and AWS deployment",
         ],
-        impact: "Turning scattered football data into actionable intelligence for scouts and analysts.",
+        impact:
+          "Turning fragmented football data into decision-grade intelligence.",
       },
     },
     {
       title: "Histomancer",
       subtitle: "Lung Cancer Classifier",
       description:
-        "Deep learning system for classifying lung histopathology images with Grad-CAM explainability.",
+        "Deep learning system for lung histopathology with Grad-CAM explainability.",
       tags: ["Deep Learning", "TensorFlow", "Medical AI"],
       github: "https://github.com/liviuorehovschi/capstone",
       live: {
@@ -63,12 +64,13 @@ export default function Projects() {
       details: {
         role: "Solo Developer",
         highlights: [
-          "Fine-tuned EfficientNetB0 to ~98% accuracy",
-          "Implemented Grad-CAM for interpretability",
-          "End-to-end pipeline: data, training, evaluation, deployment",
-          "Intuitive UI for uploading and analyzing samples",
+          "EfficientNetB0 fine-tuned to ~98% accuracy",
+          "Grad-CAM interpretability",
+          "End-to-end ML pipeline",
+          "Clinician-oriented UI",
         ],
-        impact: "Demonstrating how deep learning can assist early cancer detection.",
+        impact:
+          "Demonstrating how AI can assist early cancer detection.",
       },
     },
     {
@@ -79,44 +81,46 @@ export default function Projects() {
       tags: ["Python", "AI", "Algorithms", "UI"],
       github: "https://github.com/liviuorehovschi/checkerscpu",
       live: {
-        url: "https://YOUR-CHECKERS-DEPLOY-URL",
+        url: "https://checkproj.vercel.app/",
         label: "Play Game",
       },
       image: "/checkers.jpeg",
       details: {
         role: "Solo Developer",
         highlights: [
-          "Built complete game logic from scratch",
-          "Minimax AI with alpha-beta pruning",
-          "Custom heuristics for board evaluation",
-          "Polished UI/UX",
+          "Game engine built from first principles",
+          "Minimax + alpha-beta pruning AI",
+          "Custom board heuristics",
+          "Polished UI",
         ],
-        impact: "A deep dive into game theory and algorithmic decision making.",
+        impact:
+          "A deep dive into game theory and algorithmic decision-making.",
       },
     },
     {
       title: "WashBot",
       subtitle: "Laundry Status Bot",
       description:
-        "Telegram bot used by 150+ residents to track washer status.",
+        "Telegram bot used by 150+ residents to track washer availability.",
       tags: ["Python", "Telegram API"],
       github: "https://github.com/MSaadAsad/WashBot",
       image: "/wash.jpeg",
       details: {
         role: "Contributor",
         highlights: [
-          "Real-time availability notifications",
-          "Multi-machine status tracking",
-          "Conversational Telegram interface",
+          "Real-time notifications",
+          "Multi-machine tracking",
+          "Conversational interface",
         ],
-        impact: "Saving people time on a daily annoyance.",
+        impact:
+          "Saving people time on a daily annoyance.",
       },
     },
     {
       title: "Oob",
       subtitle: "Video Platform",
       description:
-        "Full-stack video sharing platform with AI-assisted recommendations.",
+        "Full-stack video platform with AI-assisted recommendations.",
       tags: ["Django", "React", "PostgreSQL"],
       privateNote: "Private repository · Code available on request",
       image: "/oob.jpeg",
@@ -125,16 +129,17 @@ export default function Projects() {
         highlights: [
           "Django REST API",
           "React frontend",
-          "OpenAI embeddings for recommendations",
+          "Embedding-based recommendations",
         ],
-        impact: "A complete full-stack platform with AI integration.",
+        impact:
+          "A complete full-stack system with AI integration.",
       },
     },
     {
       title: "Tonight",
       subtitle: "Venue Assistant",
       description:
-        "AI-powered venue summaries using Maps and OpenAI APIs.",
+        "AI-generated venue summaries using Maps and OpenAI APIs.",
       tags: ["Flask", "OpenAI API", "Python"],
       privateNote: "Private repository · University project",
       image: "/tonight.jpeg",
@@ -142,10 +147,11 @@ export default function Projects() {
         role: "Developer",
         highlights: [
           "Maps + OpenAI integration",
-          "AI-generated venue summaries",
+          "AI summarization",
           "Personalized recommendations",
         ],
-        impact: "Helping decide where to go, faster.",
+        impact:
+          "Helping decide where to go, faster.",
       },
     },
   ];
@@ -156,6 +162,22 @@ export default function Projects() {
       behavior: "smooth",
     });
   };
+
+  const PrimaryButton = ({
+    href,
+    children,
+  }: {
+    href: string;
+    children: React.ReactNode;
+  }) => (
+    <Link
+      href={href}
+      target="_blank"
+      className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium hover:bg-white/90 transition-colors"
+    >
+      {children}
+    </Link>
+  );
 
   return (
     <div className="min-h-screen py-20">
@@ -186,28 +208,26 @@ export default function Projects() {
                 {project.title}
               </h3>
               <p className="text-sm text-white/60 mb-3">{project.subtitle}</p>
-              <p className="text-white/70 mb-4 line-clamp-2">{project.description}</p>
+              <p className="text-white/70 mb-4 line-clamp-2">
+                {project.description}
+              </p>
 
               <div className="flex gap-3 items-center">
                 {project.live && (
-                  <Link
-                    href={project.live.url}
-                    target="_blank"
-                    className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium"
-                  >
+                  <PrimaryButton href={project.live.url}>
                     {project.live.label}
-                  </Link>
+                  </PrimaryButton>
                 )}
                 {!project.live && project.link && (
-                  <Link href={project.link} target="_blank" className="text-white">
+                  <PrimaryButton href={project.link}>
                     Visit
-                  </Link>
+                  </PrimaryButton>
                 )}
                 {project.github && (
                   <Link
                     href={project.github}
                     target="_blank"
-                    className="text-white/60 text-sm"
+                    className="text-white/60 text-sm hover:text-white transition-colors"
                   >
                     View Code
                   </Link>
@@ -248,34 +268,29 @@ export default function Projects() {
 
             <ul className="space-y-2 mb-6">
               {projects[previewIndex].details.highlights.map((h, i) => (
-                <li key={i} className="text-white/70">• {h}</li>
+                <li key={i} className="text-white/70">
+                  • {h}
+                </li>
               ))}
             </ul>
 
             <div className="flex gap-3">
               {projects[previewIndex].live && (
-                <Link
-                  href={projects[previewIndex].live!.url}
-                  target="_blank"
-                  className="px-4 py-2 rounded-full bg-white text-black text-sm"
-                >
+                <PrimaryButton href={projects[previewIndex].live!.url}>
                   {projects[previewIndex].live!.label}
-                </Link>
+                </PrimaryButton>
               )}
-              {!projects[previewIndex].live && projects[previewIndex].link && (
-                <Link
-                  href={projects[previewIndex].link!}
-                  target="_blank"
-                  className="px-4 py-2 rounded-full bg-white text-black text-sm"
-                >
-                  Visit
-                </Link>
-              )}
+              {!projects[previewIndex].live &&
+                projects[previewIndex].link && (
+                  <PrimaryButton href={projects[previewIndex].link}>
+                    Visit
+                  </PrimaryButton>
+                )}
               {projects[previewIndex].github && (
                 <Link
                   href={projects[previewIndex].github}
                   target="_blank"
-                  className="px-4 py-2 rounded-full border border-white/20 text-white/70 text-sm"
+                  className="px-4 py-2 rounded-full border border-white/20 text-white/70 text-sm hover:bg-white/5 transition-colors"
                 >
                   View Code
                 </Link>
