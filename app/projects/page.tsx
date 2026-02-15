@@ -55,7 +55,7 @@ export default function Projects() {
       description:
         "Deep learning system for lung histopathology with Grad-CAM explainability.",
       tags: ["Deep Learning", "TensorFlow", "Medical AI"],
-      github: "https://github.com/liviuorehovschi/capstone",
+      github: "https://github.com/orehovschi/capstone",
       live: {
         url: "https://histomancer.lol",
         label: "Open App",
@@ -79,7 +79,7 @@ export default function Projects() {
       description:
         "Custom game engine and AI using minimax with alpha-beta pruning.",
       tags: ["Python", "AI", "Algorithms", "UI"],
-      github: "https://github.com/liviuorehovschi/checkerscpu",
+      github: "https://github.com/orehovschi/checkerscpu",
       live: {
         url: "https://checkproj.vercel.app/",
         label: "Play Game",
