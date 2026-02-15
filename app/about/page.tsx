@@ -348,14 +348,14 @@ export default function About() {
                   </svg>
                 </Link>
                 <Link
-                  href="https://linkedin.com/in/liviuorehovschi"
+                  href="https://linkedin.com/in/orehovschi"
                   target="_blank"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm text-white/70 border border-white/[0.1] hover:bg-white/[0.03] hover:border-white/[0.15] transition-all"
                 >
                   LinkedIn
                 </Link>
                 <Link
-                  href="https://github.com/liviuorehovschi"
+                  href="https://github.com/orehovschi"
                   target="_blank"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm text-white/70 border border-white/[0.1] hover:bg-white/[0.03] hover:border-white/[0.15] transition-all"
                 >
