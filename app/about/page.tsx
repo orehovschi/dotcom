@@ -207,8 +207,15 @@ export default function About() {
                 <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-4">
                   Student Body President. Founded Minerva Football Club and the Breakfast Club, a roaming food and discussion group that met in Taiwan and India to explore local spots and talk through university life. Member of Google Developer Student Club.
                 </p>
-                <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-6">
+                <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-4">
                   Started in biology, added CS along the way. Not planned. Just kept finding myself in situations where technical skill mattered, and I liked that.
+                </p>
+                <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-6">
+                  Got lucky with professors. Special thanks to{" "}
+                  <Link href="https://www.minerva.edu/people/rena-levitt-ph-d/" target="_blank" className="text-white/80 hover:text-white transition-colors">Rena Levitt</Link>,{" "}
+                  <Link href="https://www.minerva.edu/people/john-levitt-ph-d/" target="_blank" className="text-white/80 hover:text-white transition-colors">John Levitt</Link>, and{" "}
+                  <Link href="https://www.minerva.edu/people/katie-donnelly/" target="_blank" className="text-white/80 hover:text-white transition-colors">Katie Donnelly</Link>. And especially{" "}
+                  <Link href="https://www.minerva.edu/people/jon-wilkins/" target="_blank" className="text-white/80 hover:text-white transition-colors">Jon Wilkins</Link>, my capstone advisor and favorite professor.
                 </p>
 
                 {/* Expandable Coursework */}
