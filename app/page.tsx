@@ -200,7 +200,7 @@ export default function Home() {
                   <Link href="https://xval.app" target="_blank" className="text-white underline underline-offset-4 decoration-white/30 hover:decoration-white/60 transition-colors">
                     xVal
                   </Link>{" "}
-                  because football arguments deserve better than "trust me bro" and a screenshot.
+                  because football arguments deserve better than &quot;trust me bro&quot; and a screenshot.
                 </p>
               </div>
 
