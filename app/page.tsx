@@ -23,7 +23,7 @@ export default function Home() {
     { label: "Moldova", icon: "🇲🇩" },
     { label: "Bay Area", icon: "🌉" },
     { label: "xVal", icon: "⚽" },
-    { label: "Fermentation", icon: "🥒" },
+    { label: "Food", icon: "🥒" },
   ];
 
   useEffect(() => {
