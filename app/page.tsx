@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -17,14 +17,6 @@ const WorldMap = dynamic(() => import("@/components/WorldMap"), {
 
 export default function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const [activeTag, setActiveTag] = useState(0);
-
-  const tags = [
-    { label: "Moldova", icon: "🇲🇩" },
-    { label: "Bay Area", icon: "🌉" },
-    { label: "xVal", icon: "⚽" },
-    { label: "Side quests", icon: "⛵" },
-  ];
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -44,13 +36,6 @@ export default function Home() {
 
     return () => observerRef.current?.disconnect();
   }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTag((prev) => (prev + 1) % tags.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, [tags.length]);
 
   return (
     <>
@@ -84,16 +69,6 @@ export default function Home() {
 
         .intro-card:hover {
           border-color: rgba(255,255,255,0.12);
-        }
-
-        .tag-pill {
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .tag-pill.active {
-          background: rgba(255,255,255,0.1);
-          border-color: rgba(255,255,255,0.3);
-          transform: scale(1.05);
         }
 
         .flowing-line {
@@ -175,22 +150,6 @@ export default function Home() {
           </div>
 
           <div className="max-w-4xl mx-auto px-6 relative">
-            {/* Interactive tags */}
-            <div className="reveal-on-scroll flex flex-wrap gap-3 mb-8 justify-center">
-              {tags.map((tag, i) => (
-                <button
-                  key={tag.label}
-                  onClick={() => setActiveTag(i)}
-                  className={`tag-pill px-4 py-2 rounded-full border border-white/10 text-sm flex items-center gap-2 ${
-                    activeTag === i ? "active" : "bg-transparent"
-                  }`}
-                >
-                  <span>{tag.icon}</span>
-                  <span className={activeTag === i ? "text-white" : "text-white/50"}>{tag.label}</span>
-                </button>
-              ))}
-            </div>
-
             {/* Main intro cards */}
             <div className="reveal-on-scroll grid md:grid-cols-2 gap-4">
               <div className="intro-card rounded-2xl p-6 transition-all duration-300">
