@@ -15,7 +15,7 @@ const cities = [
     countryCode: "MD",
     coords: [48.1567, 28.2867] as [number, number],
     wiki: "https://en.wikipedia.org/wiki/Soroca",
-    preview: "Where it all started. A small village in northern Moldova where my parents were sometimes paid in tomatoes. We worked the land for subsistence until my father made a bold move—selling his childhood home, his late father's car, everything—to put a down payment on a small flat in the capital. A crazy attempt at better opportunities for my brother and me. We moved into an unfinished apartment and lived through financial hardship until things slowly improved.",
+    preview: "Only lived here during my first year, but I kept coming back throughout childhood. This is where I learned what it means to build from the ground up and to value resourcefulness. Time spent with family here sparked an early appreciation for traditional food methods like fermentation and a respect for simple systems that sustain themselves.",
   },
   {
     name: "Chișinău",
@@ -23,7 +23,7 @@ const cities = [
     countryCode: "MD",
     coords: [47.0105, 28.8638] as [number, number],
     wiki: "https://en.wikipedia.org/wiki/Chi%C8%99in%C4%83u",
-    preview: "My city. I know it like the back of my hand. Learned to speak here, picked up Russian from the streets. This is where I was introduced to coding—Pascal. That didn't exactly spark my interest. Went through school here and attended Valeriu Poliacov music school. The capital shaped who I am.",
+    preview: "The city where I grew up and developed most of my early interests. I attended Valeriu Poliacov music school for classical guitar and graduated with a high average. I worked a range of early roles including hostel operations, travel sales, tutoring through EducationUSA, and research roles at the Institute of Chemistry and a short internship at the Institute of Physiology. I also co hosted a national radio show for children in my mid teens and performed with a musical folklore ensemble led by the Osoianu Sisters. This period built my core academic foundation and early professional instincts.",
   },
   {
     name: "Philadelphia",
@@ -31,7 +31,7 @@ const cities = [
     countryCode: "US",
     coords: [39.9526, -75.1652] as [number, number],
     wiki: "https://en.wikipedia.org/wiki/Philadelphia",
-    preview: "Boarding high school at Westtown School. Became an Eagles fan. Had a host family who taught me about America—its culture, its contradictions. They took me across the East Coast, Colorado, Utah. Spent summers there too. My first real immersion in a world completely different from home.",
+    preview: "At Westtown School as an ASSIST Scholar I earned academic distinction while pushing hard in STEM. I posted top percentile standardized scores (1490 SAT, perfect SAT Biology, strong TOEFL), earned a National Spanish Exam medal, competed in varsity wrestling, and studied digital music production. It was my first sustained exposure to a truly high-performing environment.",
   },
   {
     name: "Siegen",
@@ -39,7 +39,7 @@ const cities = [
     countryCode: "DE",
     coords: [50.8747, 8.0244] as [number, number],
     wiki: "https://en.wikipedia.org/wiki/Siegen",
-    preview: "Came during COVID to save pocket money for college. Worked at Burger King. At first we lived in a nearby village and had to walk an hour through the forest at 1 AM—wild boars and all. Got attacked once. Stayed until August, then left for the U.S. to start university.",
+    preview: "Moved during COVID to save money before starting university. Worked at Burger King while navigating German bureaucracy independently, including registration, employment, and health insurance, and became functionally fluent in the language through necessity. It was my first period living fully on my own and operating without a support system. I saved enough to make attending university financially possible while learning to operate with discipline and high operational standards.",
   },
   {
     name: "Dublin",
@@ -47,7 +47,7 @@ const cities = [
     countryCode: "IE",
     coords: [53.3498, -6.2603] as [number, number],
     wiki: "https://en.wikipedia.org/wiki/Dublin",
-    preview: "After the full-scale invasion of Ukraine, air travel to Moldova stopped. I spent college summers in Dublin with my brother. A temporary home during uncertain times.",
+    preview: "Dublin became my base when travel home was blocked after the invasion of Ukraine. Living with my brother, a cloud networking engineer, gave me daily exposure to how real production systems are built, which pushed me to start teaching myself programming through Khan Academy, Coursera, and Udacity. I also attended my first hackathon (ETHPrague), my first exposure to how technical teams operate under time pressure.",
   },
   {
     name: "San Francisco",
@@ -55,7 +55,7 @@ const cities = [
     countryCode: "US",
     coords: [37.7749, -122.4194] as [number, number],
     wiki: "https://en.wikipedia.org/wiki/San_Francisco",
-    preview: "First and last semester of college. This is where I learned about AI and tech. Started coding at the beginning of college, fell in love with it, and added it as a second major. The city that turned curiosity into direction.",
+    preview: "Studied here during the first and final semesters of university. This is where I added computer science and AI alongside my biology track and began working seriously at the intersection of AI and real world systems. Built early technical projects, started my startup work, and held several roles across research, teaching, and operations. San Francisco is where curiosity turned into a clear technical and professional direction.",
   },
   {
     name: "Seoul",
@@ -63,7 +63,7 @@ const cities = [
     countryCode: "KR",
     coords: [37.5665, 126.978] as [number, number],
     wiki: "https://en.wikipedia.org/wiki/Seoul",
-    preview: "The biggest cultural shock. An extraordinarily organized society—amazing food, discipline, safety, social responsibility, humble people. Layers of history everywhere. Second semester abroad. A place that recalibrated my sense of what's possible.",
+    preview: "Visiting student at Sookmyung Women's University. Worked with classmates on a proposal exploring how public libraries could evolve into technology access hubs for migrant communities, starting with outreach connected to Haebangchon. The project gave me my first exposure to applying technical thinking in a real urban context and navigating stakeholder conversations. Seoul's level of organization, safety, and social responsibility reset my expectations for how large systems can function.",
   },
   {
     name: "Taipei",
@@ -71,7 +71,7 @@ const cities = [
     countryCode: "TW",
     coords: [25.033, 121.5654] as [number, number],
     wiki: "https://en.wikipedia.org/wiki/Taipei",
-    preview: "Exotic and warm. Fell in love with nature and the food. Took a cooking class at NTU. Played in competitive football tournaments with our freshly-formed Minerva FC. Third semester abroad.",
+    preview: "Studied in Taipei through a partnership between Minerva and National Taiwan University. Took a traditional Chinese cooking course at NTU and spent the semester building strong local context through classmates, campus life, and competition. Participated in a short program at IRCAD Taiwan focused on computer vision and robotics applications in minimally invasive surgery, interacting with engineers, developers, and clinicians. I also built Minerva FC into a structured team competing in NTU tournaments, a first real test of building an organization that could operate seriously in a new environment.",
   },
   {
     name: "Hyderabad",
@@ -79,7 +79,7 @@ const cities = [
     countryCode: "IN",
     coords: [17.385, 78.4867] as [number, number],
     wiki: "https://en.wikipedia.org/wiki/Hyderabad",
-    preview: "My favorite. A country with inexhaustible variety—culture, food, languages. Traveled all over. Interned at the Centre for Cellular and Molecular Biology and LaCONES, the Laboratory for the Conservation of Endangered Species. Fourth semester abroad.",
+    preview: "Studied through a university partnership program at the Centre for Cellular and Molecular Biology, learning directly from researchers working on microbiome and cellular systems. Continued at LaCONES where the focus shifted to conservation biology, animal forensics, and ethical research frameworks. Exposure to these institutions provided a close view of serious scientific environments and interdisciplinary collaboration across biology, systems thinking, and technology.",
   },
   {
     name: "Buenos Aires",
@@ -87,7 +87,7 @@ const cities = [
     countryCode: "AR",
     coords: [-34.6037, -58.3816] as [number, number],
     wiki: "https://en.wikipedia.org/wiki/Buenos_Aires",
-    preview: "Interned at Universidad Torcuato Di Tella. Explored Patagonia extensively—Calafate, Ushuaia, Río Gallegos, Torres del Paine across the border in Chile. The south of the world. Fifth semester abroad.",
+    preview: "Interned at Universidad Torcuato Di Tella with Mate Marote, working on cognitive training games while beginning to build my first real full stack projects with friends, including an early version of the Tonight venue recommendation app. Buenos Aires became a period of deep technical growth and independence. During this time I also traveled extensively across Patagonia including El Calafate, Ushuaia, Río Gallegos, and Torres del Paine, fulfilling a childhood dream inspired by Jules Verne's Voyages Extraordinaires that my parents used to read to me.",
   },
   {
     name: "London",
@@ -95,7 +95,7 @@ const cities = [
     countryCode: "GB",
     coords: [51.5074, -0.1278] as [number, number],
     wiki: "https://en.wikipedia.org/wiki/London",
-    preview: "Fell in love with football all over again. Decided I wanted to get involved in the field. Worked on front-end and visual content for Exchange Theatre, a London-based performance group. Sixth semester abroad.",
+    preview: "Worked on front end and visual content for Exchange Theatre, gaining experience translating creative direction into production work. Formalized Minerva FC as an official student initiative and secured funding, allowing the team to operate without personal financing. Began early research that later evolved into my Histomancer capstone project and attended the EAG x Nordics conference focused on AI and safety. London marked a shift toward more deliberate technical and research direction.",
   },
   {
     name: "Berlin",
@@ -103,7 +103,7 @@ const cities = [
     countryCode: "DE",
     coords: [52.52, 13.405] as [number, number],
     wiki: "https://en.wikipedia.org/wiki/Berlin",
-    preview: "Faced with big problems. Had my first accident—learned about insurance, police, law. As student body president, I navigated a crisis when U.S. government rule changes impacted my entire university. Led a stressful cohort-wide move across the ocean. Final semester abroad.",
+    preview: "Final year of university. Built Histomancer after pivoting from chest X ray data to histology due to dataset limitations, navigating multiple iterations to reach a workable approach. As student body president I helped coordinate communication and support during a major disruption that forced multiple cohorts to navigate sudden relocation, immigration uncertainty, and graduation concerns while the university itself underwent restructuring. During this period I also met people connected to Transfermarkt and Hertha Berlin, which later contributed to my interest in football analytics.",
   },
 ];
 

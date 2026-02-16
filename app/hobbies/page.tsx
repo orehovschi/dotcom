@@ -19,7 +19,7 @@ export default function Hobbies() {
         { label: "SoundCloud", url: "https://soundcloud.com/liviu-orehovschi" },
       ],
       details: {
-        background: "I've been making music since high school—started with vocals and eventually moved into production. It's a creative outlet that balances the technical work I do during the day.",
+        background: "I've been making music since high school, started with vocals and eventually moved into production. It's a creative outlet that balances the technical work I do during the day.",
         highlights: [
           "Self-taught in digital music production using Ableton and Logic Pro",
           "Create covers, remixes, and original compositions across various genres",
@@ -45,7 +45,7 @@ export default function Hobbies() {
           "Created a community that persisted even as the student body rotated globally",
           "Managed logistics, equipment, and coordination across 7 countries",
         ],
-        whatItMeans: "This taught me more about building community than any class. Getting people to show up consistently—across time zones, cultures, and busy schedules—requires follow-through and making something people actually want to be part of.",
+        whatItMeans: "This taught me more about building community than any class. Getting people to show up consistently, across time zones, cultures, and busy schedules, requires follow-through and making something people actually want to be part of.",
       },
     },
     {
@@ -57,14 +57,14 @@ export default function Hobbies() {
         { label: "View Study", url: "https://docs.google.com/presentation/d/1ECuB4Va-G-kjAFkv3wBOxZFCzGv6jmCK5zV9HnUXtx4/edit?usp=sharing" },
       ],
       details: {
-        background: "Pickled tomatoes are a staple back home in Moldova—but most people just eyeball the process. I wanted to understand exactly what makes a perfect batch, so I treated it like a research project.",
+        background: "Pickled tomatoes are a staple back home in Moldova, but most people just eyeball the process. I wanted to understand exactly what makes a perfect batch, so I treated it like a research project.",
         highlights: [
           "Tracked pH levels, salt concentrations, and temperature throughout fermentation",
           "Documented reaction dynamics and bacterial growth patterns",
           "Experimented with different variables to optimize flavor and texture",
           "Created detailed documentation of the entire process and results",
         ],
-        whatItMeans: "This is what happens when someone who likes systems also likes food. It's not about being fancy—it's about understanding why something works so you can make it work better.",
+        whatItMeans: "This is what happens when someone who likes systems also likes food. It's not about being fancy, it's about understanding why something works so you can make it work better.",
       },
     },
     {
@@ -76,12 +76,12 @@ export default function Hobbies() {
         { label: "View Experiment", url: "https://docs.google.com/presentation/d/1DcVwhZ6pWOuguoKqaqRgnx4Fs1nJjJ7V1Y6alX-dnXc/edit?usp=sharing" },
       ],
       details: {
-        background: "Sourdough appealed to me because it's a system with many variables—temperature, hydration, timing, flour type—and small changes produce noticeably different results.",
+        background: "Sourdough appealed to me because it's a system with many variables: temperature, hydration, timing, flour type. Small changes produce noticeably different results.",
         highlights: [
           "Maintained and fed a sourdough starter through multiple countries and climates",
           "Documented experiments with different flours, hydration levels, and fermentation times",
           "Learned to read the dough and adjust based on environmental conditions",
-          "Each loaf is an iteration—some succeed, some teach you something",
+          "Each loaf is an iteration. Some succeed, some teach you something",
         ],
         whatItMeans: "Baking sourdough is a good metaphor for a lot of things: you can't rush fermentation, you have to pay attention to feedback, and consistency comes from understanding the process, not just following a recipe.",
       },
