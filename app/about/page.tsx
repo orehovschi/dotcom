@@ -202,20 +202,13 @@ export default function About() {
                   Concentrations: Computer Science & AI · Cells and Organisms
                 </p>
                 <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-4">
-                  Minerva is a global university with no single campus. Classes were live and discussion heavy, and we rotated across seven countries. It is small, selective, and a little weird in the best way. In 2025, <Link href="https://www.wuri.world/wuri-ranking-2025" target="_blank" className="text-white/80 underline underline-offset-2 decoration-white/30 hover:decoration-white/60 transition-colors">WURI ranked Minerva number 1 in the world</Link> for innovation.
+                  <Link href="https://www.wuri.world/wuri-ranking-2025" target="_blank" className="text-white/80 underline underline-offset-2 decoration-white/30 hover:decoration-white/60 transition-colors">Ranked #1 in the world for innovation</Link> by WURI in 2025. No campus. Seven countries. Live seminars, heavy on discussion. Small, selective, and a little weird in the best way.
                 </p>
                 <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-4">
-                  I served as Student Body President and founded Minerva Football Club. The club became one of the most consistent parts of student life across rotations. It taught me how to get people to care, keep momentum, and run something that actually lasts.
-                </p>
-                <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-4">
-                  I started university leaning toward biology. Computer science came in along the way. It was not perfectly planned. I just kept ending up in situations where technical skill mattered, and I liked that.
+                  Student Body President. Founded Minerva Football Club and the Breakfast Club, a roaming food and discussion group that met in Taiwan and India to explore local spots and talk through university life. Member of Google Developer Student Club.
                 </p>
                 <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-6">
-                  I also got lucky with professors. Special thanks to{" "}
-                  <Link href="https://www.minerva.edu/people/rena-levitt-ph-d/" target="_blank" className="text-white/80 hover:text-white transition-colors">Rena Levitt</Link>,{" "}
-                  <Link href="https://www.minerva.edu/people/john-levitt-ph-d/" target="_blank" className="text-white/80 hover:text-white transition-colors">John Levitt</Link>, and{" "}
-                  <Link href="https://www.minerva.edu/people/katie-donnelly/" target="_blank" className="text-white/80 hover:text-white transition-colors">Katie Donnelly</Link>. And especially{" "}
-                  <Link href="https://www.minerva.edu/people/jon-wilkins/" target="_blank" className="text-white/80 hover:text-white transition-colors">Jon Wilkins</Link>, my capstone advisor and my favorite professor.
+                  Started in biology, added CS along the way. Not planned. Just kept finding myself in situations where technical skill mattered, and I liked that.
                 </p>
 
                 {/* Expandable Coursework */}

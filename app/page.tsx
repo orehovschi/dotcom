@@ -136,19 +136,13 @@ export default function Home() {
         </section>
 
         {/* Editorial Intro Section */}
-        <section className="py-20 border-t border-[var(--glass-border)]">
-          <div className="max-w-3xl mx-auto px-6 space-y-6">
-            <p className="reveal-on-scroll text-xl md:text-2xl text-white/80 leading-relaxed font-light">
-              I&apos;m Liviu. I grew up in <span className="highlight-word">Moldova</span> and somehow ended up in the Bay Area. I&apos;m building <Link href="https://xval.app" target="_blank" className="text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/40">xVal</Link> because I got tired of football debates that end with &quot;trust me bro&quot; and a screenshot.
+        <section className="py-16 border-t border-[var(--glass-border)]">
+          <div className="max-w-3xl mx-auto px-6 space-y-4">
+            <p className="reveal-on-scroll text-base md:text-lg text-white/70 leading-relaxed">
+              I&apos;m Liviu. Grew up in <span className="highlight-word">Moldova</span>, ended up in the Bay. Building <Link href="https://xval.app" target="_blank" className="text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/40">xVal</Link> because football arguments deserve better than screenshots and vibes.
             </p>
-            <p className="reveal-on-scroll text-xl md:text-2xl text-white/80 leading-relaxed font-light">
-              I&apos;m intense about the work, not performative about it. I like direct conversations, real constraints, and finishing the job without the ceremony.
-            </p>
-            <p className="reveal-on-scroll text-xl md:text-2xl text-white/80 leading-relaxed font-light">
-              Outside of work, I&apos;m usually in the kitchen or in my head. I cook a lot, study world cuisines, and treat fermentation like a long running side quest: sourdough from scratch, pickles, brines, experiments that take days and reward patience. I grew up in a Moldovan village where you plant things, harvest things, and learn early that from scratch is not a brand.
-            </p>
-            <p className="reveal-on-scroll text-xl md:text-2xl text-white/80 leading-relaxed font-light">
-              I also like poetry, folklore, and the performing arts. I draw, I sing, I play instruments, and I have a soft spot for drama in the artistic sense, not the workplace sense.
+            <p className="reveal-on-scroll text-base md:text-lg text-white/70 leading-relaxed">
+              When I&apos;m not working, I cook. A lot. Fermentation, sourdough, pickles, brines. The kind of food that takes days and teaches patience. I got that from home, where you grow what you eat and &quot;from scratch&quot; is just how things are done.
             </p>
           </div>
         </section>
