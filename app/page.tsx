@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -17,6 +17,14 @@ const WorldMap = dynamic(() => import("@/components/WorldMap"), {
 
 export default function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [activeTag, setActiveTag] = useState(0);
+
+  const tags = [
+    { label: "Moldova", icon: "🇲🇩" },
+    { label: "Bay Area", icon: "🌉" },
+    { label: "xVal", icon: "⚽" },
+    { label: "Fermentation", icon: "🥒" },
+  ];
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -36,6 +44,13 @@ export default function Home() {
 
     return () => observerRef.current?.disconnect();
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTag((prev) => (prev + 1) % tags.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [tags.length]);
 
   return (
     <>
@@ -61,22 +76,38 @@ export default function Home() {
         .reveal-on-scroll:nth-child(3) { transition-delay: 0.2s; }
         .reveal-on-scroll:nth-child(4) { transition-delay: 0.3s; }
 
-
-        .highlight-word {
-          position: relative;
-          white-space: nowrap;
+        .intro-card {
+          background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255,255,255,0.06);
         }
 
-        .highlight-word::after {
-          content: '';
-          position: absolute;
-          left: -4px;
-          right: -4px;
-          bottom: 2px;
-          height: 8px;
-          background: rgba(255, 200, 150, 0.15);
-          z-index: -1;
-          border-radius: 2px;
+        .intro-card:hover {
+          border-color: rgba(255,255,255,0.12);
+        }
+
+        .tag-pill {
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tag-pill.active {
+          background: rgba(255,255,255,0.1);
+          border-color: rgba(255,255,255,0.3);
+          transform: scale(1.05);
+        }
+
+        .flowing-line {
+          background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+          animation: flowDown 2s ease-in-out infinite;
+        }
+
+        @keyframes flowDown {
+          0%, 100% { opacity: 0.3; transform: translateY(-10px); }
+          50% { opacity: 1; transform: translateY(10px); }
+        }
+
+        .glow-text {
+          text-shadow: 0 0 30px rgba(255,255,255,0.15);
         }
       `}</style>
 
@@ -135,40 +166,78 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Editorial Intro Section */}
-        <section className="py-16 border-t border-[var(--glass-border)]">
-          <div className="max-w-3xl mx-auto px-6 space-y-4">
-            <p className="reveal-on-scroll text-base md:text-lg text-white/70 leading-relaxed">
-              I&apos;m Liviu. Grew up in <span className="highlight-word">Moldova</span>, ended up in the Bay. Building <Link href="https://xval.app" target="_blank" className="text-white hover:text-white/70 transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/40">xVal</Link> because football arguments deserve better than screenshots and vibes.
-            </p>
-            <p className="reveal-on-scroll text-base md:text-lg text-white/70 leading-relaxed">
-              When I&apos;m not working, I cook. A lot. Fermentation, sourdough, pickles, brines. The kind of food that takes days and teaches patience. I got that from home, where you grow what you eat and &quot;from scratch&quot; is just how things are done.
-            </p>
+        {/* Dynamic Intro Section */}
+        <section className="py-16 border-t border-[var(--glass-border)] relative overflow-hidden">
+          {/* Subtle gradient background */}
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white/3 rounded-full blur-3xl" />
+          </div>
+
+          <div className="max-w-4xl mx-auto px-6 relative">
+            {/* Interactive tags */}
+            <div className="reveal-on-scroll flex flex-wrap gap-3 mb-8 justify-center">
+              {tags.map((tag, i) => (
+                <button
+                  key={tag.label}
+                  onClick={() => setActiveTag(i)}
+                  className={`tag-pill px-4 py-2 rounded-full border border-white/10 text-sm flex items-center gap-2 ${
+                    activeTag === i ? "active" : "bg-transparent"
+                  }`}
+                >
+                  <span>{tag.icon}</span>
+                  <span className={activeTag === i ? "text-white" : "text-white/50"}>{tag.label}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Main intro cards */}
+            <div className="reveal-on-scroll grid md:grid-cols-2 gap-4">
+              <div className="intro-card rounded-2xl p-6 transition-all duration-300">
+                <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Origin → Present</p>
+                <p className="text-white/80 leading-relaxed">
+                  Grew up in <span className="text-white glow-text">Moldova</span>, ended up in the Bay. Building{" "}
+                  <Link href="https://xval.app" target="_blank" className="text-white underline underline-offset-4 decoration-white/30 hover:decoration-white/60 transition-colors">
+                    xVal
+                  </Link>{" "}
+                  because football arguments deserve better than screenshots.
+                </p>
+              </div>
+
+              <div className="intro-card rounded-2xl p-6 transition-all duration-300">
+                <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Off the clock</p>
+                <p className="text-white/80 leading-relaxed">
+                  I cook. Fermentation, sourdough, pickles. Food that takes days. Got that from home, where{" "}
+                  <span className="text-white/90">&quot;from scratch&quot;</span> is just how things work.
+                </p>
+              </div>
+            </div>
+
+            {/* Flowing connection to map */}
+            <div className="flex flex-col items-center mt-12 mb-4">
+              <div className="flowing-line w-px h-16" />
+              <svg className="w-5 h-5 text-white/30 mt-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
           </div>
         </section>
 
         {/* The Journey - Cities */}
-        <section className="py-24 px-6 border-t border-[var(--glass-border)]">
+        <section className="pt-8 pb-24 px-6">
           <div className="max-w-4xl mx-auto">
-            <div className="reveal-on-scroll mb-12">
+            <div className="reveal-on-scroll mb-8 text-center">
               <p className="font-editorial text-2xl md:text-3xl text-white/90 leading-snug">
-                I&apos;ve lived in 12 cities across four continents.
+                12 cities. Four continents.
               </p>
-              <p className="text-base text-white/50 mt-3">
-                Sounds glamorous until you realize it mostly means I got good at packing and saying goodbye.
+              <p className="text-sm text-white/40 mt-2">
+                Tap a pin to explore.
               </p>
             </div>
 
             {/* Interactive World Map */}
             <div className="reveal-on-scroll">
               <WorldMap />
-            </div>
-
-            {/* Closing line */}
-            <div className="reveal-on-scroll mt-12">
-              <p className="text-base text-white/40">
-                One pin, one story.
-              </p>
             </div>
           </div>
         </section>

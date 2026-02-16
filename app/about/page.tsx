@@ -10,8 +10,8 @@ export default function About() {
 
   const storyParagraphs = [
     "I was born in Nimereuca, near Soroca. I do not remember it, but it still feels like the start. I grew up in Chișinău, which is where I learned two things: how to move fast, and how to have opinions.",
-    "I started leaving early. Internships, odd jobs, trips that looked unnecessary until they were not. By university, moving countries became normal. The glamorous part wears off quickly. Then you start noticing the real stuff: who shows up, who flakes, who performs confidence, who actually does the work. Different places, same human bugs.",
-    "I did two majors because they did not let me do three. I like clean logic, and I like real life, even when it refuses to be clean. I am drawn to ambitious problems, sharp teams, and situations where you have to figure it out as you go.",
+    "Left early. Kept moving. By university, new countries stopped feeling new. You learn to spot patterns: who delivers, who talks.",
+    "Two majors. Would have done three. I like hard problems and people who finish what they start.",
     "I am not chill. I am just professional about it."
   ];
 
