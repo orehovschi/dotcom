@@ -23,7 +23,7 @@ export default function Home() {
     { label: "Moldova", icon: "🇲🇩" },
     { label: "Bay Area", icon: "🌉" },
     { label: "xVal", icon: "⚽" },
-    { label: "Food", icon: "🥒" },
+    { label: "Side quests", icon: "⛵" },
   ];
 
   useEffect(() => {
@@ -207,8 +207,7 @@ export default function Home() {
               <div className="intro-card rounded-2xl p-6 transition-all duration-300">
                 <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Off the clock</p>
                 <p className="text-white/80 leading-relaxed">
-                  I cook. Fermentation, sourdough, pickles. Food that takes days. Got that from home, where{" "}
-                  <span className="text-white/90">&quot;from scratch&quot;</span> is just how things work.
+                  I cook, host, and go too far on desserts. I make music and keep a creative streak alive on purpose, because it makes the technical work sharper. Same pattern every time: iterate until it hits.
                 </p>
               </div>
             </div>
