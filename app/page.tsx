@@ -109,7 +109,7 @@ export default function Home() {
           </div>
 
           {/* Content */}
-          <div className="relative z-10 flex flex-col min-h-screen justify-end pb-32">
+          <div className="relative z-10 flex flex-col min-h-screen justify-end pb-[18vh]">
             {/* Floating Navigation Links */}
             <div className="section-container">
               <div className="flex flex-wrap justify-center sm:justify-start gap-x-8 gap-y-4 sm:gap-x-12">
