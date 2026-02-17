@@ -205,19 +205,29 @@ export default function About() {
       `}</style>
 
      <div className="min-h-screen">
-      {/* Hero Opening */}
-      <section className="pt-32 pb-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="reveal-on-scroll font-editorial text-4xl sm:text-5xl md:text-6xl font-medium text-white leading-[1.15] tracking-tight">
-            I did the global thing for real.<br />
-            <span className="text-white/50">I learned what reliable sounds like in ten different accents.</span>
+      {/* Hero Opening - Full viewport, centered */}
+      <section className="min-h-screen flex flex-col items-center justify-center px-6 relative">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="reveal-on-scroll font-editorial text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-white leading-[1.1] tracking-tight">
+            I did the global thing for real.
           </h1>
+          <p className="reveal-on-scroll font-editorial text-2xl sm:text-3xl md:text-4xl text-white/40 mt-4 leading-snug">
+            I learned what reliable sounds like in ten different accents.
+          </p>
+        </div>
+
+        {/* Scroll indicator at bottom */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <span className="text-white/30 text-xs uppercase tracking-widest mb-3">Scroll</span>
+          <div className="flowing-line w-px h-10" />
+          <svg className="w-4 h-4 text-white/30 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+          </svg>
         </div>
       </section>
 
-
         {/* Story Section */}
-        <section className="py-16 px-6 border-t border-white/[0.06]">
+        <section className="py-24 px-6">
           <div className="max-w-3xl mx-auto">
             <div ref={containerRef} className="space-y-6">
               {storyParagraphs.map((paragraph, index) => (
