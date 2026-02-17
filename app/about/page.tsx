@@ -317,12 +317,24 @@ export default function About() {
         <section className="py-16 px-6">
           <div className="max-w-4xl mx-auto space-y-2">
             <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
-              <span className="text-white/70">Day-to-day:</span>{" "}
-              Python, TypeScript, SQL, React, Next.js, PostgreSQL, pandas, Git.
+              <span className="text-white/70">Languages:</span>{" "}
+              Python, SQL, TypeScript
             </p>
             <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
-              <span className="text-white/70">When needed:</span>{" "}
-              R, Flask, TensorFlow, Docker, AWS.
+              <span className="text-white/70">Infrastructure:</span>{" "}
+              PostgreSQL, AWS, Docker, Cloudflare
+            </p>
+            <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
+              <span className="text-white/70">Frameworks:</span>{" "}
+              React, FastAPI, Flask, Django, SQLAlchemy
+            </p>
+            <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
+              <span className="text-white/70">Data & ML:</span>{" "}
+              pandas, scikit-learn, TensorFlow, ETL pipelines, data modeling, OpenAI API
+            </p>
+            <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
+              <span className="text-white/70">Tools:</span>{" "}
+              Git, Hugging Face, Vercel
             </p>
           </div>
         </section>
