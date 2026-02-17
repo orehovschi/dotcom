@@ -266,76 +266,45 @@ export default function About() {
           </div>
         </section>
 
-        {/* What I Work On */}
+        {/* What I Do */}
         <section className="py-24 px-6">
           <div className="max-w-4xl mx-auto">
-            <p className="reveal-on-scroll text-sm tracking-[0.3em] text-white/60 uppercase mb-12">
-              What I Work On
-            </p>
-
-            <div className="reveal-on-scroll grid md:grid-cols-3 gap-12 md:gap-8">
-              <div className="group">
-                <div className="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center mb-4 group-hover:bg-white/[0.06] group-hover:border-white/[0.1] transition-all">
-                  <svg className="w-5 h-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3zm0 4h16M9 4v3m6-3v3" />
-                  </svg>
-                </div>
-                <h3 className="text-lg text-white font-medium mb-2">Building Products</h3>
-                <p className="text-base text-white/60 leading-relaxed">
-                  I like taking an idea from vague to usable. The whole loop: make a plan, build the thing, iterate fast, and keep polishing until it feels right.
-                </p>
+            <div className="reveal-on-scroll grid md:grid-cols-3 gap-6">
+              <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-all">
+                <h3 className="text-white font-medium mb-2">Ship fast</h3>
+                <p className="text-sm text-white/50">Idea to production. Iterate until it works.</p>
               </div>
-
-              <div className="group">
-                <div className="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center mb-4 group-hover:bg-white/[0.06] group-hover:border-white/[0.1] transition-all">
-                  <svg className="w-5 h-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg text-white font-medium mb-2">Applied Analysis</h3>
-                <p className="text-base text-white/60 leading-relaxed">
-                  I do best when there&apos;s something concrete to understand and improve. Sometimes that involves models or statistics, but I&apos;m not attached to any one method. I just want the result to be clear and defensible.
-                </p>
+              <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-all">
+                <h3 className="text-white font-medium mb-2">Own the stack</h3>
+                <p className="text-sm text-white/50">Data to UI. Less handoff, more momentum.</p>
               </div>
-
-              <div className="group">
-                <div className="w-10 h-10 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center mb-4 group-hover:bg-white/[0.06] group-hover:border-white/[0.1] transition-all">
-                  <svg className="w-5 h-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75l-9.75-5.25 4.179-2.25m11.142 0l-5.571 3-5.571-3" />
-                  </svg>
-                </div>
-                <h3 className="text-lg text-white font-medium mb-2">Full Stack Ownership</h3>
-                <p className="text-base text-white/60 leading-relaxed">
-                  I&apos;m happiest owning work end-to-end, from data shapes and backend logic to the UI and deployment. Less handoff, more momentum.
-                </p>
+              <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-all">
+                <h3 className="text-white font-medium mb-2">Make it defensible</h3>
+                <p className="text-sm text-white/50">Clear results. Methods that hold up.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Tools */}
-        <section className="py-16 px-6">
-          <div className="max-w-4xl mx-auto space-y-2">
-            <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
-              <span className="text-white/70">Languages:</span>{" "}
-              Python, SQL, TypeScript
-            </p>
-            <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
-              <span className="text-white/70">Infrastructure:</span>{" "}
-              PostgreSQL, AWS, Docker, Cloudflare
-            </p>
-            <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
-              <span className="text-white/70">Frameworks:</span>{" "}
-              React, FastAPI, Flask, Django, SQLAlchemy
-            </p>
-            <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
-              <span className="text-white/70">Data & ML:</span>{" "}
-              pandas, scikit-learn, TensorFlow, ETL pipelines, data modeling, OpenAI API
-            </p>
-            <p className="reveal-on-scroll text-white/60 text-base leading-relaxed">
-              <span className="text-white/70">Tools:</span>{" "}
-              Git, Hugging Face, Vercel
-            </p>
+        {/* Stack */}
+        <section className="py-16 px-6 border-t border-white/[0.06]">
+          <div className="max-w-4xl mx-auto">
+            <div className="reveal-on-scroll flex flex-wrap gap-2">
+              {[
+                "Python", "SQL", "TypeScript",
+                "PostgreSQL", "AWS", "Docker", "Cloudflare",
+                "React", "FastAPI", "Flask", "Django", "SQLAlchemy",
+                "pandas", "scikit-learn", "TensorFlow", "OpenAI API",
+                "Git", "Hugging Face", "Vercel"
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1.5 text-sm text-white/60 bg-white/[0.03] border border-white/[0.08] rounded-full hover:bg-white/[0.06] hover:border-white/[0.15] hover:text-white/80 transition-all cursor-default"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
         </section>
 
