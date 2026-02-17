@@ -95,24 +95,25 @@ export default function Home() {
               src="/me.jpeg"
               alt="Liviu Orehovschi presenting at pitch night"
               fill
-              className="object-cover object-[center_25%] scale-[0.94] brightness-[0.75] contrast-105"
+              className="object-cover object-[center_25%] sm:object-[center_25%] scale-[1] sm:scale-[0.94] brightness-[0.7] sm:brightness-[0.75] contrast-105"
               priority
             />
-            {/* Dark tint for text readability */}
-            <div className="absolute inset-0 bg-black/30" />
-            {/* Heavy side vignettes - more padding */}
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #0a0a0b 0%, #0a0a0b 8%, transparent 30%, transparent 70%, #0a0a0b 92%, #0a0a0b 100%)' }} />
-            {/* Heavy top vignette */}
+            {/* Dark tint for text readability - stronger on mobile */}
+            <div className="absolute inset-0 bg-black/40 sm:bg-black/30" />
+            {/* Side vignettes - softer on mobile */}
+            <div className="absolute inset-0 hidden sm:block" style={{ background: 'linear-gradient(to right, #0a0a0b 0%, #0a0a0b 8%, transparent 30%, transparent 70%, #0a0a0b 92%, #0a0a0b 100%)' }} />
+            <div className="absolute inset-0 sm:hidden" style={{ background: 'linear-gradient(to right, #0a0a0b 0%, transparent 15%, transparent 85%, #0a0a0b 100%)' }} />
+            {/* Top vignette */}
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #0a0a0b 0%, #0a0a0b 3%, transparent 20%, transparent 100%)' }} />
-            {/* Heavy bottom vignette */}
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #0a0a0b 0%, #0a0a0b 5%, transparent 30%, transparent 100%)' }} />
+            {/* Bottom vignette - stronger on mobile for nav readability */}
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #0a0a0b 0%, #0a0a0b 8%, transparent 40%, transparent 100%)' }} />
           </div>
 
           {/* Content */}
-          <div className="relative z-10 flex flex-col min-h-screen justify-end pb-[18vh]">
+          <div className="relative z-10 flex flex-col min-h-screen justify-end pb-[22vh] sm:pb-[18vh]">
             {/* Floating Navigation Links */}
             <div className="section-container">
-              <div className="flex flex-wrap justify-center sm:justify-start gap-x-8 gap-y-4 sm:gap-x-12">
+              <div className="grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:justify-start sm:gap-x-12 sm:gap-y-4">
                 {[
                   { href: "/about", title: "About", desc: "Background & education" },
                   { href: "/experiences", title: "Experience", desc: "Work history" },
@@ -124,11 +125,11 @@ export default function Home() {
                     href={item.href}
                     className="group relative"
                   >
-                    <div className="text-center sm:text-left">
-                      <h3 className="text-lg sm:text-xl font-medium text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_2px_20px_rgba(255,255,255,0.5)] transition-all duration-300">
+                    <div className="text-left">
+                      <h3 className="text-base sm:text-xl font-medium text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.3)] group-hover:drop-shadow-[0_2px_20px_rgba(255,255,255,0.5)] transition-all duration-300">
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-white/50 group-hover:text-white/70 transition-colors">
+                      <p className="text-[11px] sm:text-sm text-white/50 group-hover:text-white/70 transition-colors">
                         {item.desc}
                       </p>
                     </div>
@@ -141,10 +142,10 @@ export default function Home() {
           </div>
 
           {/* Scroll indicator at bottom */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center">
-            <span className="text-white/30 text-xs uppercase tracking-widest mb-3">Scroll</span>
-            <div className="flowing-line w-px h-10" />
-            <svg className="w-4 h-4 text-white/30 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center">
+            <span className="text-white/30 text-[10px] sm:text-xs uppercase tracking-widest mb-2 sm:mb-3">Scroll</span>
+            <div className="flowing-line w-px h-8 sm:h-10" />
+            <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white/30 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
             </svg>
           </div>
