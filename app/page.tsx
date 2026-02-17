@@ -139,6 +139,15 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* Scroll indicator at bottom */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center">
+            <span className="text-white/30 text-xs uppercase tracking-widest mb-3">Scroll</span>
+            <div className="flowing-line w-px h-10" />
+            <svg className="w-4 h-4 text-white/30 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
         </section>
 
         {/* Dynamic Intro Section */}
