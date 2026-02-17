@@ -184,6 +184,67 @@ export default function About() {
           </div>
         </section>
 
+        {/* How I Build */}
+        <section className="py-24 px-6 border-t border-white/[0.06]">
+          <div className="max-w-4xl mx-auto">
+            <p className="reveal-on-scroll text-sm tracking-[0.3em] text-white/60 uppercase mb-12">
+              How I Build
+            </p>
+
+            <div className="reveal-on-scroll space-y-8">
+              {/* Row 1: Core languages */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <span className="text-white/40 text-sm w-28 shrink-0">I write</span>
+                <div className="flex flex-wrap gap-2">
+                  {["Python", "SQL", "TypeScript"].map((s) => (
+                    <span key={s} className="px-3 py-1.5 text-sm text-white/80 bg-white/[0.05] rounded-md">{s}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Row 2: Frameworks */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <span className="text-white/40 text-sm w-28 shrink-0">I build with</span>
+                <div className="flex flex-wrap gap-2">
+                  {["React", "FastAPI", "Flask", "Django", "SQLAlchemy"].map((s) => (
+                    <span key={s} className="px-3 py-1.5 text-sm text-white/80 bg-white/[0.05] rounded-md">{s}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Row 3: Data/ML */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <span className="text-white/40 text-sm w-28 shrink-0">I model with</span>
+                <div className="flex flex-wrap gap-2">
+                  {["pandas", "scikit-learn", "TensorFlow", "OpenAI API"].map((s) => (
+                    <span key={s} className="px-3 py-1.5 text-sm text-white/80 bg-white/[0.05] rounded-md">{s}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Row 4: Infra */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <span className="text-white/40 text-sm w-28 shrink-0">I deploy on</span>
+                <div className="flex flex-wrap gap-2">
+                  {["PostgreSQL", "AWS", "Docker", "Vercel", "Cloudflare"].map((s) => (
+                    <span key={s} className="px-3 py-1.5 text-sm text-white/80 bg-white/[0.05] rounded-md">{s}</span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Row 5: Workflow */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <span className="text-white/40 text-sm w-28 shrink-0">I ship with</span>
+                <div className="flex flex-wrap gap-2">
+                  {["Git", "Hugging Face"].map((s) => (
+                    <span key={s} className="px-3 py-1.5 text-sm text-white/80 bg-white/[0.05] rounded-md">{s}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Education */}
         <section className="py-24 px-6 bg-white/[0.015]">
           <div className="max-w-4xl mx-auto">
@@ -262,48 +323,6 @@ export default function About() {
                   <Link href="https://www.assistscholars.org" target="_blank" className="text-white/80 hover:text-white transition-colors">ASSIST scholarship award</Link>. <Link href="https://nationalspanishexam.org/" target="_blank" className="text-white/80 hover:text-white transition-colors">National Spanish Exam</Link> medalist. Academic distinction.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* What I Do */}
-        <section className="py-24 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="reveal-on-scroll grid md:grid-cols-3 gap-6">
-              <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-all">
-                <h3 className="text-white font-medium mb-2">Ship fast</h3>
-                <p className="text-sm text-white/50">Idea to production. Iterate until it works.</p>
-              </div>
-              <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-all">
-                <h3 className="text-white font-medium mb-2">Own the stack</h3>
-                <p className="text-sm text-white/50">Data to UI. Less handoff, more momentum.</p>
-              </div>
-              <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-all">
-                <h3 className="text-white font-medium mb-2">Make it defensible</h3>
-                <p className="text-sm text-white/50">Clear results. Methods that hold up.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Stack */}
-        <section className="py-16 px-6 border-t border-white/[0.06]">
-          <div className="max-w-4xl mx-auto">
-            <div className="reveal-on-scroll flex flex-wrap gap-2">
-              {[
-                "Python", "SQL", "TypeScript",
-                "PostgreSQL", "AWS", "Docker", "Cloudflare",
-                "React", "FastAPI", "Flask", "Django", "SQLAlchemy",
-                "pandas", "scikit-learn", "TensorFlow", "OpenAI API",
-                "Git", "Hugging Face", "Vercel"
-              ].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3 py-1.5 text-sm text-white/60 bg-white/[0.03] border border-white/[0.08] rounded-full hover:bg-white/[0.06] hover:border-white/[0.15] hover:text-white/80 transition-all cursor-default"
-                >
-                  {skill}
-                </span>
-              ))}
             </div>
           </div>
         </section>
