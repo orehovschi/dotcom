@@ -12,10 +12,10 @@ export default function Experiences() {
       period: "Aug 2025 – Present",
       location: "San Francisco",
       bullets: [
-        "Built data pipelines processing 140+ football leagues, 500K+ players, 2M+ matches",
-        "Developed ML player valuation models with embeddings and similarity search",
-        "Shipped text-to-SQL scouting assistant handling 1000+ natural language queries",
-        "Architected full platform: React frontend, Python backend, PostgreSQL, AWS",
+        "Led delivery of 3 production MVPs in <4 months (React, Python, PostgreSQL, AWS), partnering with Launchpad engineers and iterating with scouts, analysts, and media testers",
+        "Drove data + ML pipeline design across 140+ leagues, 500K+ players, and 2M+ matches, turning fragmented multi source football data into production grade datasets",
+        "Established a historical backtesting loop achieving 71% predictive alignment, establishing a quantitative performance benchmark and improving model releases over time",
+        "Owned product direction across data models, evaluation metrics, UX flows, and deployment architecture",
       ],
     },
     {
@@ -26,9 +26,9 @@ export default function Experiences() {
       period: "Jan 2025 – May 2025",
       location: "Remote",
       bullets: [
-        "Tested 10+ developmental psychology studies before public launch",
-        "Documented 50+ UX issues across instruction clarity, layout, and flow",
-        "Contributed to platform serving 100K+ child participants globally",
+        "Tested and QA'd 10+ developmental psychology studies pre launch, surfacing 50+ critical UX and protocol issues affecting data validity",
+        "Delivered structured reports that directly informed experiment revisions, improving participant completion reliability",
+        "Contributed to research infrastructure used by 950+ researchers across 90+ affiliated universities",
       ],
     },
     {
@@ -39,9 +39,9 @@ export default function Experiences() {
       period: "Sep 2021 – Dec 2024",
       location: "San Francisco",
       bullets: [
-        "Automated payroll workflows for 200 student workers, saving 15+ hrs/month",
-        "Benchmarked financial aid across 100+ peer institutions",
-        "Built searchable dataset from 500+ hours of meeting recordings",
+        "Automated payroll workflows for 200 student workers, eliminating manual reconciliation and saving 15+ hours/month",
+        "Built internal datasets from 500+ hours of recordings, improving outreach coordination and searchability",
+        "Conducted benchmarking across 100+ peer institutions to support financial aid analysis",
       ],
     },
     {
@@ -52,9 +52,9 @@ export default function Experiences() {
       period: "Jun 2024 – Sep 2024",
       location: "Oakland",
       bullets: [
-        "Led door-to-door campaigns raising $40K+ for environmental policy",
-        "Testified at state hearing for marine protection legislation",
-        "Published 2 op-eds in Mercury News and Sacramento Bee (combined 1M+ readers)",
+        "Led field campaign operations raising $40K+ for environmental policy initiatives",
+        "Managed multi territory canvassing teams and performance strategy across multiple territories",
+        "Testified at state hearing supporting marine protection legislation and published op eds reaching 1M+ readers",
       ],
     },
     {
@@ -65,9 +65,9 @@ export default function Experiences() {
       period: "May 2024 – Sep 2024",
       location: "Remote",
       bullets: [
-        "Taught 30+ students aged 12-17 in Python and intro machine learning",
-        "Designed curriculum covering pandas, scikit-learn, TensorFlow basics",
-        "Achieved 95%+ positive feedback scores across all cohorts",
+        "Taught Python and machine learning fundamentals to 60+ students, adapting instruction across skill levels",
+        "Designed curriculum covering pandas, scikit learn, and TensorFlow basics with hands on projects",
+        "Achieved 95%+ student satisfaction scores across cohorts",
       ],
     },
     {
@@ -78,8 +78,8 @@ export default function Experiences() {
       period: "Jun 2023 – Jul 2024",
       location: "San Diego",
       bullets: [
-        "Mentored 400+ high school students across 2 summer programs",
-        "Led workshops on Figma, HTML/CSS/JS with project-based learning",
+        "Mentored 400+ students across technical summer programs on product and engineering projects",
+        "Led workshops on web development and design tools with project based learning",
         "Guided 50+ teams from concept to deployed websites",
       ],
     },
@@ -91,9 +91,9 @@ export default function Experiences() {
       period: "Sep 2023 – Dec 2023",
       location: "Buenos Aires",
       bullets: [
-        "Created 20+ level variants for cognitive training games",
-        "Tuned difficulty parameters across 5 game mechanics",
-        "Documented UX patterns improving child engagement metrics",
+        "Designed 20+ cognitive training game variants exploring difficulty tuning and engagement patterns",
+        "Tuned parameters across multiple mechanics to improve user progression curves",
+        "Documented behavioral and UX findings informing future experimental design",
       ],
     },
     {
@@ -104,9 +104,9 @@ export default function Experiences() {
       period: "Aug 2020 – Apr 2021",
       location: "Moldova",
       bullets: [
-        "Synthesized metal-organic compounds for water purification",
-        "Tested carbon adsorbent efficiency across 10+ contaminant types",
-        "Co-authored internal research documentation",
+        "Synthesized metal organic compounds for water purification experiments",
+        "Tested adsorbent performance across 10+ contaminant types",
+        "Co authored internal lab documentation supporting ongoing research",
       ],
     },
     {
@@ -117,9 +117,9 @@ export default function Experiences() {
       period: "Feb 2019 – Jul 2019",
       location: "Remote",
       bullets: [
-        "Generated $20K+ gross profit in 5 months through consultative selling",
+        "Generated $20K+ gross profit in 5 months through consultative sales",
         "Maintained 40%+ conversion rate on qualified leads",
-        "Optimized complex multi-leg itineraries balancing cost and convenience",
+        "Optimized complex multi leg itineraries balancing cost constraints with customer experience",
       ],
     },
   ];
