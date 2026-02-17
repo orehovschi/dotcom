@@ -197,7 +197,7 @@ export default function About() {
                   <Link href="https://www.minerva.edu" target="_blank" className="font-editorial text-3xl text-white hover:text-white/80 transition-colors">Minerva University</Link>
                   <p className="text-sm text-white/60">Class of &apos;25</p>
                 </div>
-                <p className="text-lg text-white/70 mb-6">B.S. in CS and AI · B.S. in Cell and Organism Biology</p>
+                <p className="text-lg text-white/70 mb-6">B.S. Computer Science & AI · B.S. Biology (Cells & Organisms)</p>
                 <p className="text-white/60 text-base leading-relaxed max-w-2xl mb-4">
                   <Link href="https://www.wuri.world/wuri-ranking-2025" target="_blank" className="text-white/80 underline underline-offset-2 decoration-white/30 hover:decoration-white/60 transition-colors">Ranked #1 in the world for innovation</Link> by WURI in 2025. No campus. Seven countries. Live seminars, heavy on discussion. Small, selective, and a little weird in the best way.
                 </p>
