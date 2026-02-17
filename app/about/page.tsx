@@ -153,6 +153,55 @@ export default function About() {
         .reveal-on-scroll:nth-child(2) { transition-delay: 0.1s; }
         .reveal-on-scroll:nth-child(3) { transition-delay: 0.2s; }
         .reveal-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+
+        .flowing-line {
+          background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+          animation: flowDown 2s ease-in-out infinite;
+        }
+
+        @keyframes flowDown {
+          0%, 100% { opacity: 0.3; transform: translateY(-8px); }
+          50% { opacity: 1; transform: translateY(8px); }
+        }
+
+        .skill-row {
+          position: relative;
+          padding-left: 1rem;
+          border-left: 1px solid rgba(255,255,255,0.06);
+          transition: all 0.3s ease;
+        }
+
+        .skill-row:hover {
+          border-left-color: rgba(255,255,255,0.2);
+          padding-left: 1.25rem;
+        }
+
+        .skill-row::before {
+          content: '';
+          position: absolute;
+          left: -3px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.3);
+          transition: all 0.3s ease;
+        }
+
+        .skill-row:hover::before {
+          background: rgba(255,255,255,0.6);
+          box-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        .skill-pill {
+          transition: all 0.2s ease;
+        }
+
+        .skill-pill:hover {
+          background: rgba(255,255,255,0.12);
+          transform: translateY(-1px);
+        }
       `}</style>
 
      <div className="min-h-screen">
@@ -181,66 +230,56 @@ export default function About() {
                 </p>
               ))}
             </div>
+
+            {/* Flow indicator */}
+            <div className="flex flex-col items-center mt-16">
+              <div className="flowing-line w-px h-12" />
+              <svg className="w-4 h-4 text-white/20 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
           </div>
         </section>
 
         {/* How I Build */}
-        <section className="py-24 px-6 border-t border-white/[0.06]">
+        <section className="py-20 px-6">
           <div className="max-w-4xl mx-auto">
-            <p className="reveal-on-scroll text-sm tracking-[0.3em] text-white/60 uppercase mb-12">
+            <p className="reveal-on-scroll text-sm tracking-[0.3em] text-white/40 uppercase mb-10">
               How I Build
             </p>
 
-            <div className="reveal-on-scroll space-y-8">
-              {/* Row 1: Core languages */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <span className="text-white/40 text-sm w-28 shrink-0">I write</span>
-                <div className="flex flex-wrap gap-2">
-                  {["Python", "SQL", "TypeScript"].map((s) => (
-                    <span key={s} className="px-3 py-1.5 text-sm text-white/80 bg-white/[0.05] rounded-md">{s}</span>
-                  ))}
+            <div className="reveal-on-scroll space-y-6">
+              {[
+                { label: "I write", tools: ["Python", "SQL", "TypeScript"] },
+                { label: "I build with", tools: ["React", "FastAPI", "Flask", "Django", "SQLAlchemy"] },
+                { label: "I model with", tools: ["pandas", "scikit-learn", "TensorFlow", "OpenAI API"] },
+                { label: "I deploy on", tools: ["PostgreSQL", "AWS", "Docker", "Vercel", "Cloudflare"] },
+                { label: "I ship with", tools: ["Git", "Hugging Face"] },
+              ].map((row, i) => (
+                <div key={i} className="skill-row py-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                    <span className="text-white/50 text-sm font-medium w-28 shrink-0">{row.label}</span>
+                    <div className="flex flex-wrap gap-2">
+                      {row.tools.map((tool) => (
+                        <span
+                          key={tool}
+                          className="skill-pill px-3 py-1.5 text-sm text-white/70 bg-white/[0.04] border border-white/[0.08] rounded-lg cursor-default"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
+            </div>
 
-              {/* Row 2: Frameworks */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <span className="text-white/40 text-sm w-28 shrink-0">I build with</span>
-                <div className="flex flex-wrap gap-2">
-                  {["React", "FastAPI", "Flask", "Django", "SQLAlchemy"].map((s) => (
-                    <span key={s} className="px-3 py-1.5 text-sm text-white/80 bg-white/[0.05] rounded-md">{s}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Row 3: Data/ML */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <span className="text-white/40 text-sm w-28 shrink-0">I model with</span>
-                <div className="flex flex-wrap gap-2">
-                  {["pandas", "scikit-learn", "TensorFlow", "OpenAI API"].map((s) => (
-                    <span key={s} className="px-3 py-1.5 text-sm text-white/80 bg-white/[0.05] rounded-md">{s}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Row 4: Infra */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <span className="text-white/40 text-sm w-28 shrink-0">I deploy on</span>
-                <div className="flex flex-wrap gap-2">
-                  {["PostgreSQL", "AWS", "Docker", "Vercel", "Cloudflare"].map((s) => (
-                    <span key={s} className="px-3 py-1.5 text-sm text-white/80 bg-white/[0.05] rounded-md">{s}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Row 5: Workflow */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <span className="text-white/40 text-sm w-28 shrink-0">I ship with</span>
-                <div className="flex flex-wrap gap-2">
-                  {["Git", "Hugging Face"].map((s) => (
-                    <span key={s} className="px-3 py-1.5 text-sm text-white/80 bg-white/[0.05] rounded-md">{s}</span>
-                  ))}
-                </div>
-              </div>
+            {/* Flow indicator */}
+            <div className="flex flex-col items-center mt-16">
+              <div className="flowing-line w-px h-12" />
+              <svg className="w-4 h-4 text-white/20 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+              </svg>
             </div>
           </div>
         </section>
@@ -324,11 +363,19 @@ export default function About() {
                 </p>
               </div>
             </div>
+
+            {/* Flow indicator */}
+            <div className="flex flex-col items-center mt-16">
+              <div className="flowing-line w-px h-12" />
+              <svg className="w-4 h-4 text-white/20 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
           </div>
         </section>
 
         {/* Contact */}
-        <section className="py-24 px-6 border-t border-white/[0.06]">
+        <section className="py-24 px-6">
           <div className="max-w-4xl mx-auto">
             <div className="reveal-on-scroll">
               <p className="font-editorial text-3xl md:text-4xl text-white mb-8">
